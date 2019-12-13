@@ -1,0 +1,25 @@
+Package: speech
+Type: Package
+Title: Legislative Speechs 
+Version: 0.1.0
+Author: Nicolas Schmidt, Diego Lujan, Juan Andres Moraes
+Maintainer: Nicolas Schmidt <nschmidt@cienciassociales.edu.uy>
+Description: Contains functions to convert floor speeches of Uruguayan legislators 
+    from PDF to tidy and clean data.frame.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.6.0)
+URL: https://github.com/Nicolas-Schmidt/speech
+Imports:
+    dplyr,
+    lubridate, 
+    magrittr,
+    purrr, 
+    tabulizer, 
+    stringr,
+    tibble,
+    tm, 
+    tidyr
+RoxygenNote: 7.0.2

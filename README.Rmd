@@ -1,0 +1,118 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+## The `speech` package <img src='man/figures/logo.png' align="right" height="160" />
+
+_Nicolás Schmidt, Diejo Luján, Juan Andrés Moraes_
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+### Description
+
+Contains functions to convert floor speeches of Uruguayan legislators from PDF to tidy and clean data.frame.
+
+### Installation
+
+```r
+# Install speech from CRAN
+install.packages("speech")
+
+# Or the development version from GitHub:
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("Nicolas-Schmidt/speech")
+```
+
+
+### Data generation process
+
+
+#### 1 - Floor speeches
+
+<img src="man/figures/fspeech.png" style="margin-center:30px;margin-bottom:5px;" width="600" align="center"></a>
+
+
+#### 2 - Data extraction
+
+<img src="man/figures/fspeechextract.png" style="margin-center:30px;margin-bottom:5px;" width="600" align="center"></a>
+
+
+#### 3 - First construction of the database: `speech::speech_build()`
+
+<img src="man/figures/fspeechnocompiler.png" style="margin-center:30px;margin-bottom:5px;" width="900" align="center"></a>
+
+
+#### 4 - Final database: `speech::speech_build(., compiler = TRUE)`
+
+<img src="man/figures/fspeechcompiler.png" style="margin-center:30px;margin-bottom:5px;" width="900" align="center"></a>
+
+
+### Example
+
+```{r example}
+library(speech)
+url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diario-de-sesion/comisionpermanente/6084/IMG/0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollow"
+text <- speech::speech_build(file = url)
+text
+
+
+speech_check(text, initial = c("A", "M"))
+
+
+text <- speech_legis_replace(tidy_speech = text, old = "GOI", new = "GOÑI")
+text
+
+text <- speech::speech_build(file = url, compiler = TRUE)
+text
+
+
+text$word <- speech_word_count(text$speech)
+
+dplyr::glimpse(text)
+
+```
+
+
+### Possible application
+```{r}
+library(magrittr)
+
+text$speech %>% 
+    quanteda::corpus() %>% 
+    quanteda::dfm() %>% 
+    quanteda::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
+                   
+
+```
+
+
+
+
+#### Citation
+
+To cite `speech` in publications, please use:
+
+``` r
+citation("speech")
+```
+
+#### Maintainer
+
+Nicolas Schmidt (<nschmidt@cienciassociales.edu.uy>)
+
+
+
+
+
