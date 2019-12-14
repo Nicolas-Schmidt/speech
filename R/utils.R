@@ -26,6 +26,7 @@ legislature <- function(df, name_var_date ){
         l46 <- lubridate::interval(ymd("2005-02-15"), ymd("2010-02-14"))
         l47 <- lubridate::interval(ymd("2010-02-15"), ymd("2015-02-14"))
         l48 <- lubridate::interval(ymd("2015-02-15"), ymd("2020-02-14"))
+        l49 <- lubridate::interval(ymd("2020-02-15"), ymd("2025-02-14"))
         df  <- as.data.frame(df)
         f   <- df[, names(df) == name_var_date]
         f2  <- numeric(nrow(df))
@@ -37,6 +38,7 @@ legislature <- function(df, name_var_date ){
                 if(f[i] %within% l46){f2[i] <- 46L}
                 if(f[i] %within% l47){f2[i] <- 47L}
                 if(f[i] %within% l48){f2[i] <- 48L}
+                if(f[i] %within% l49){f2[i] <- 49L}
         }
         f2
 }
