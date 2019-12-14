@@ -7,7 +7,7 @@
 speech_view(tidy_speech, legis = character(), view = FALSE)
 }
 \arguments{
-\item{tidy_speech}{tibble class \code{puy}.}
+\item{tidy_speech}{data.frame class \code{puy}.}
 
 \item{legis}{name of the legislator.}
 

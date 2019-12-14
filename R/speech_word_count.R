@@ -1,13 +1,13 @@
 #' @title Number of words
-#' @description Number of words.
-#' @param string character vector of length equal to or greater than one.
+#' @description Word count.
+#' @param string character of length equal to or greater than one.
 #' @param exclude words that are to be excluded from counting.
 #' @param min.char integer that determines the words that have less than a
 #'     certain number of characters.
 #' @param rm.long integer that determines the number of characters from which
 #'     words have to be deleted from the count.
-#' @param replace.punct string of characters with which all punctuation marks
-#'     will be replaced.
+#' @param replace.punct logical. If \code{TRUE} punctuation marks within a single
+#'      word will be replaced by a space. By default is \code{TRUE}.
 #' @param rm.num logical. Indicates whether the numbers in the count will be
 #'     eliminated.
 #' @return integer.

@@ -7,7 +7,7 @@
 speech_check(tidy_speech, initial, expand = FALSE)
 }
 \arguments{
-\item{tidy_speech}{tibble class \code{puy}}
+\item{tidy_speech}{data.frame class \code{puy}}
 
 \item{initial}{character vector. Initial of the legislators' names. If no
 initial is entered, all will be checked.}

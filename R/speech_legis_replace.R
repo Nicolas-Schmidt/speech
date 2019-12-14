@@ -1,9 +1,9 @@
 #' @title Rename legislators
-#' @description allows to adjust the name of the legislators prior to compiling the data.
-#' @param tidy_speech tibble class \code{puy}.
-#' @param old old name legislator.
-#' @param new new name legislator.
-#' @param id id 'floorspeech'.
+#' @description allows to modify the legislators' name prior to compiling the data.
+#' @param tidy_speech data.frame class \code{puy}.
+#' @param old old legislator's name.
+#' @param new new legislator's name.
+#' @param id id 'floor speech'.
 #' @return data.frame.
 #' @examples
 #' \dontrun{

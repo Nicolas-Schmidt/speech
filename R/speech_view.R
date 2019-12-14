@@ -1,6 +1,6 @@
 #' @title View control speech
 #' @description Allows to see the legislators' names with problems prior to compiling the data.
-#' @param tidy_speech tibble class \code{puy}.
+#' @param tidy_speech data.frame class \code{puy}.
 #' @param legis name of the legislator.
 #' @param view logical. If \code{TRUE} \code{View} displays datasets containing
 #'     legislators' interventions (\code{legis}). By default is \code{FALSE}.

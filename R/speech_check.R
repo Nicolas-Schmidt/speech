@@ -1,7 +1,7 @@
 #' @title Check the names of legislators
 #' @description It allows to check that the names of the legislators are
 #'     correctly written before compiling the documents in \code{speech_build}.
-#' @param tidy_speech tibble class \code{puy}
+#' @param tidy_speech data.frame class \code{puy}
 #' @param initial character vector. Initial of the legislators' names. If no
 #'     initial is entered, all will be checked.
 #' @param expand logical. If \code{TRUE}, the legislature to which the name of the legislator

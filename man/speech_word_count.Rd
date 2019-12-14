@@ -14,7 +14,7 @@ speech_word_count(
 )
 }
 \arguments{
-\item{string}{character vector of length equal to or greater than one.}
+\item{string}{character of length equal to or greater than one.}
 
 \item{exclude}{words that are to be excluded from counting.}
 
@@ -27,14 +27,14 @@ words have to be deleted from the count.}
 \item{rm.num}{logical. Indicates whether the numbers in the count will be
 eliminated.}
 
-\item{replace.punct}{string of characters with which all punctuation marks
-will be replaced.}
+\item{replace.punct}{logical. If \code{TRUE} punctuation marks within a single
+word will be replaced by a space. By default is \code{TRUE}.}
 }
 \value{
 integer.
 }
 \description{
-Number of words.
+Word count.
 }
 \examples{
 

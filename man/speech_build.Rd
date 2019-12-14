@@ -15,46 +15,45 @@ speech_build(
 }
 \arguments{
 \item{file}{list or character vector specifying the path or URL to a PDF file.
-It can be one or more than one file.}
+It can be one or more files.}
 
-\item{add.error.sir}{character vector. It allows to add errors on how
-the word that orders the speeches is written: sir. By default it is \code{NULL}.}
+\item{add.error.sir}{character vector. It allows to specify different ways in which
+the term that orders the speeches could be miswritten: sir. By default it is \code{NULL}.}
 
-\item{rm.error.leg}{character vector. It allows adding names of
-legislators to be eliminated. By default it is \code{NULL}.
+\item{rm.error.leg}{character vector. It allows to add legislator's names
+to be eliminated. By default it is \code{NULL}.
 By default, "PRESIDENTE", "SECRETARIO", "SUBSECRETARIO", and "MINISTRO" are eliminated.}
 
-\item{compiler}{logical. When finalizing the agreements of the speeches
-it is necessary to choose to compile. To compile implies to unite all the
+\item{compiler}{logical. When the checking of the process of conversion from pdf to data frame
+is completed, it is necessary to compile the data frame. To compile implies to unite all the
 speeches of each of the legislators for each document. As it is an operation
 that must be carried out after making corrections, it is necessary to opt for it.
 By default it is \code{FALSE}.}
 
 \item{quality}{logical. If \code{TRUE}, two quality indicators are added about
-the construction process of the data.frame according to the quality of the document.
+the process, according to the quality of the document.
 \itemize{
-        \item{index_1: Proportion of the text recovered in function
-        of the theoretical text (\code{param = list(char = 6500, drop.page = 2)})
-        that must have the docuemnto.}
+        \item{index_1: Proportion of the text recovered according to the original document
+        (\code{param = list(char = 6500, drop.page = 2)}) that must have the document.}
         \item{index_2: Proportion of the final text as a function of the
         recovered text. It is the proportion of the document in which there are
         only interventions by legislators.}
        }}
 
-\item{param}{list of length 2 giving the character for page and drop page non evaluate
-respectively. The default values are the median characteristics of
+\item{param}{list of length 2 with magnitudes for arguments "character for page" and "drop page
+non evaluate" respectively. The default values are the median characters of
 8500 documents that make up the speech datasets.}
 }
 \value{
-tibble class \code{puy} with the following variables:
+data.frame class \code{puy} with the following variables:
      \itemize{
             \item{\code{legislator}: name of the legislators}
             \item{\code{speech}: speeches by legislators}
             \item{\code{date}: session date}
             \item{\code{id}: name \code{file}}
-            \item{\code{legislature}: number of the legislature (period of government)}
+            \item{\code{legislature}: legislature id (period of government)}
             \item{\code{chamber}: chamber to which the document belongs.
-            It can be: Deputy, Senator, General Assembly or Permanent Commission.}
+            It can be: Chamber of Representatives, Senate, General Assembly or Permanent Commission.}
            }
          If quality is TRUE, the following are added:
      \itemize{
@@ -63,21 +62,20 @@ tibble class \code{puy} with the following variables:
            }
 }
 \description{
-It allows to extract the individual interventions of each legislator
-    in document and obtain a data.frame with all the interventions of each legislator
-    in a session of the congress.
+It allows to extract the individual speeches of each legislator
+    in a document and obtain a data.frame.
 }
 \details{
-This function converts PDF documents to data.frame. This conversion is
+This function converts PDF documents to data.frame. The conversion is
     made by seeking interventions of legislators from the word "SENOR". As the
     quality of PDF files is not always the best it is recommended to verify that
     no legislator is omitted in the data.frame construction process. To make
     corrections of the word "SENOR" is that the argument \code{add.error.sir}
     should be used. The function has a long list of different ways in which
     the word "SENOR" may be written in a document, but not all possible future
-    problems are covered. When the PDF document is a scan that was submitted to
-    an OCR, it is possible that it should be checked with greater precision
-    that the operation is performed correctly.
+    problems are covered. When the PDF document is a scan that was treated with
+    an OCR, it should be checked with greater caution to ensure that the operation
+    was performed correctly.
 }
 \examples{
 \dontrun{

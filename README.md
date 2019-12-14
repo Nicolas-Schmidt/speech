@@ -3,7 +3,7 @@
 
 ## The `speech` package <img src='man/figures/logo.png' align="right" height="160" />
 
-*Nicolás Schmidt, Diejo Luján, Juan Andrés Moraes*
+*Nicolas Schmidt, Diego Lujan, Juan Andres Moraes*
 
 <!-- badges: start -->
 

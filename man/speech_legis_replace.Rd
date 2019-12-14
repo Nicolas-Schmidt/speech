@@ -7,19 +7,19 @@
 speech_legis_replace(tidy_speech, old, new, id = NULL)
 }
 \arguments{
-\item{tidy_speech}{tibble class \code{puy}.}
+\item{tidy_speech}{data.frame class \code{puy}.}
 
-\item{old}{old name legislator.}
+\item{old}{old legislator's name.}
 
-\item{new}{new name legislator.}
+\item{new}{new legislator's name.}
 
-\item{id}{id 'floorspeech'.}
+\item{id}{id 'floor speech'.}
 }
 \value{
 data.frame.
 }
 \description{
-allows to adjust the name of the legislators prior to compiling the data.
+allows to modify the legislators' name prior to compiling the data.
 }
 \examples{
 \dontrun{

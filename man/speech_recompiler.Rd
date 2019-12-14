@@ -10,12 +10,12 @@ speech_recompiler(
 )
 }
 \arguments{
-\item{tidy_speech}{tibble.}
+\item{tidy_speech}{data.frame.}
 
-\item{compiler_by}{character vector. Variables for which you want to recompile.}
+\item{compiler_by}{character vector. Variables for which you may want to recompile the data frame.}
 }
 \value{
-tibble.
+data.frame.
 }
 \description{
 It allows to recompile an object of the \code{puy} class, the datasets
@@ -23,9 +23,9 @@ It allows to recompile an object of the \code{puy} class, the datasets
     variable political party was added.
 }
 \details{
-The default compilation is that of \ code {speech_build (dat, compiler = TRUE}).
-    This function allows you to recompile the data by different levels of aggregation:
-    chamber only, only legislature or other opacities.
+The default compilation is that of \ code {speech_build (., compiler = TRUE}).
+    This function allows to recompile the data by different levels of aggregation:
+    chamber, legislature or other variables.
 }
 \examples{
 \dontrun{
