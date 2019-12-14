@@ -130,9 +130,16 @@ dplyr::glimpse(text)
 ``` r
 library(magrittr)
 
+minchar <- function(string, min = 3){
+    string <- stringr::str_remove_all(string, "[[:punct:]]")
+    string <- unlist(strsplit(string, " "))
+    string[nchar(string) > min]
+}
+
 text$speech %>% 
+    minchar(., min = 4) %>%  
     quanteda::corpus() %>% 
-    quanteda::dfm() %>% 
+    quanteda::dfm(remove = c("señor", "señora")) %>% 
     quanteda::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
 ```
 
