@@ -87,6 +87,7 @@ speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compil
         out <- out[!unlist(lapply(out, is.null))]
         out <- out[purrr::map_int(out, nrow) != 0]
         out <- dplyr::bind_rows(out)
+        out$speech <- stringr::str_squish(out$speech)
 
         if(compiler){
             compiler(tidy_speech = out,
