@@ -27,10 +27,7 @@ Contains functions to convert floor speeches of Uruguayan legislators from PDF t
 ### Installation
 
 ```r
-# Install speech from CRAN
-install.packages("speech")
-
-# Or the development version from GitHub:
+# The development version from GitHub:
 if (!require("remotes")) install.packages("remotes")
 remotes::install_github("Nicolas-Schmidt/speech")
 ```

@@ -17,10 +17,7 @@ from PDF to tidy and clean data.frame.
 ### Installation
 
 ``` r
-# Install speech from CRAN
-install.packages("speech")
-
-# Or the development version from GitHub:
+# The development version from GitHub:
 if (!require("remotes")) install.packages("remotes")
 remotes::install_github("Nicolas-Schmidt/speech")
 ```
