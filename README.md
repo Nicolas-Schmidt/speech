@@ -145,6 +145,26 @@ text$speech %>%
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
+``` r
+library(ggplot2)
+
+text$speech %>% 
+    minchar(., min = 4) %>%  
+    tibble::enframe() %>% 
+    tidytext::unnest_tokens(word, value) %>%
+    dplyr::count(word, sort = TRUE) %>%
+    dplyr::mutate(word = stats::reorder(word, n)) %>%
+    dplyr::filter(!stringr::str_detect(word, "^señor")) %>% 
+    .[1:40,] %>% 
+    ggplot(aes(word, n)) +
+        geom_col(col = "black", fill = "#00A08A",width = .7) +
+        labs(x = "", y = "") +
+        coord_flip() +
+        theme_minimal()
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="70%" />
+
 #### Citation
 
 To cite `speech` in publications, please use:
