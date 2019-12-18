@@ -37,7 +37,6 @@ integer.
 Word count.
 }
 \examples{
-
 vec <- "Hello world!"
 speech_word_count(vec)
 
@@ -54,5 +53,4 @@ r <- "R version 3.5.2 (2018-12-20) -- 'Eggshell Igloo'"
 speech_word_count(r, rm.num = TRUE)
 
 speech_word_count(NA)
-
 }

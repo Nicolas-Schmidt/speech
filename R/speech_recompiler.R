@@ -9,10 +9,11 @@
 #'     This function allows to recompile the data by different levels of aggregation:
 #'     chamber, legislature or other variables.
 #' @examples
-#' \dontrun{
-#' dat <- data(speech)
-#' speech_recompiler(dat)
-#' speech_recompiler(dat)
+#' \donttest{
+#' url <- "http://bit.ly/35AUVF4"
+#' out <- speech_build(file = url)
+#' out2 <- speech_recompiler(out)
+#' out2 <- speech_recompiler(out, compiler_by = c("legislator", "legislature", "chamber"))
 #' }
 #' @export
 

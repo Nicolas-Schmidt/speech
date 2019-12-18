@@ -3,9 +3,19 @@ Type: Package
 Title: Legislative Speeches 
 Version: 0.1.0
 Author: Nicolas Schmidt, Diego Lujan, Juan Andres Moraes
-Maintainer: Nicolas Schmidt <nschmidt@cienciassociales.edu.uy>
-Description: Contains functions to convert floor speeches of Uruguayan legislators 
-    from PDF to tidy and clean data.frame.
+Authors@R: c(person(given = "Nicolas", 
+                    family = "Schmidt", 
+                    role = c("aut", "cre"), 
+                    email = "nschmidt@cienciassociales.edu.uy"),
+             person(given = "Diego",
+                    family = "Lujan",
+                    role = c("aut")),
+             person(given = "Juan Andres",
+                    family = "Moraes",
+                    role = c("aut"))
+                    )
+Description: Converts the floor speeches of Uruguayan legislators, extracted from the 
+    parliamentary minutes, to tidy data.frame where each observation is the intervention of a single legislator.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -21,5 +31,6 @@ Imports:
     stringr,
     tibble,
     tm, 
-    tidyr
+    tidyr, 
+    pdftools
 RoxygenNote: 7.0.2

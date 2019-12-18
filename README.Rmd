@@ -112,7 +112,7 @@ text$speech %>%
     dplyr::filter(!stringr::str_detect(word, "^señor")) %>% 
     .[1:40,] %>% 
     ggplot(aes(word, n)) +
-        geom_col(col = "black", fill = "#00A08A",width = .7) +
+        geom_col(col = "black", fill = "#00A08A", width = .7) +
         labs(x = "", y = "") +
         coord_flip() +
         theme_minimal()

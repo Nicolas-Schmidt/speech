@@ -23,11 +23,9 @@ It allows to check that the names of the legislators are
     correctly written before compiling the documents in \code{speech_build}.
 }
 \examples{
-\dontrun{
-dat <- data(speech)
-speech_check(dat, initial = c("A", "N", "Z"), expand = FALSE)
-out2$legislator <- gsub(x = dat2$legislator, pattern = "NAME_j1", replacement = "NAME_j")
-speech_check(dat, "N")
+\donttest{
+url <- "http://bit.ly/35AUVF4"
+out <- speech_build(file = url)
+speech_check(out, initial = c("A", "M"), expand = FALSE)
 }
-
 }

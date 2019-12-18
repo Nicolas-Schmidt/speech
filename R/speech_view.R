@@ -6,8 +6,10 @@
 #'     legislators' interventions (\code{legis}). By default is \code{FALSE}.
 #' @return data.frame.
 #' @examples
-#' \dontrun{
-#' speech_view(tidy_speech = out, legis = c("AMARILLA", "OSTA"), view = FALSE)
+#' \donttest{
+#' url <- "http://bit.ly/35AUVF4"
+#' out <- speech_build(file = url)
+#' speech_view(tidy_speech = out, legis = c("ABDALA", "LAZO"), view = FALSE)
 #' }
 #' @export
 

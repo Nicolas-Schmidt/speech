@@ -12,7 +12,6 @@
 #'     eliminated.
 #' @return integer.
 #' @examples
-#'
 #' vec <- "Hello world!"
 #' speech_word_count(vec)
 #'
@@ -29,7 +28,6 @@
 #' speech_word_count(r, rm.num = TRUE)
 #'
 #' speech_word_count(NA)
-#'
 #' @export
 
 speech_word_count <- function(string, exclude = NULL, min.char = 0L, rm.long = Inf,

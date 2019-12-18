@@ -50,28 +50,23 @@
 #'             \item{\code{index_1}: index_1}
 #'             \item{\code{index_2}: index_2}
 #'            }
+#'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' url <- "http://bit.ly/35AUVF4"
+#' out <- speech_build(file = url)
+#'
+#' out <- speech_build(file = url, compiler = FALSE,
+#'                      quality = TRUE,
+#'                      add.error.sir = c("SEf'IOR"),
+#'                      rm.error.leg = c("PRtSIDENTE", "SUB", "PRfSlENTE"),
+#'                      param = list(char = 6000, drop.page = 3))
 #'
 #' out <- list.files(pattern = "*.pdf") %>% speech_build()
 #'
 #' out <- list.files(pattern = "*.pdf") %>%
 #'     speech_build(., compiler = TRUE, param = list(char = 4500, drop.page = 3))
-#'
-#' url <- "https://legislativo.parlamento.gub.uy/temporales/20180621s0017517818.pdf"
-#' out <- speech_build(file = url)
-#'
-#' urlS <- c("https://legislativo.parlamento.gub.uy/temporales/20191710s0002622525.pdf",
-#'           "https://legislativo.parlamento.gub.uy/temporales/20190917c00019885716.pdf")
-#' out <- speech_build(file = urlS)
-#'
-#' out <- speech_build(file = url, compiler = FALSE,
-#'                      quality = TRUE,
-#'                      add.error.sor = c("SEf'IOR"),
-#'                      rm.error.leg = c("PRtSIDENTE", "SUB", "PRfSlENTE"),
-#'                      param = list(char = 6000, drop.page = 3))
 #' }
-#'
 #' @export
 
 speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler = FALSE,

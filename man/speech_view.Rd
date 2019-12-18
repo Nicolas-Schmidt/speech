@@ -21,7 +21,9 @@ data.frame.
 Allows to see the legislators' names with problems prior to compiling the data.
 }
 \examples{
-\dontrun{
-speech_view(tidy_speech = out, legis = c("AMARILLA", "OSTA"), view = FALSE)
+\donttest{
+url <- "http://bit.ly/35AUVF4"
+out <- speech_build(file = url)
+speech_view(tidy_speech = out, legis = c("ABDALA", "LAZO"), view = FALSE)
 }
 }

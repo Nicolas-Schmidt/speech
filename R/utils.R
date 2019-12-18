@@ -135,7 +135,7 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
         clave <- clave[clave > 300]
         ident <- sub("([^.]+)\\.[[:alnum:]]+$", "\\1", basename(file))
         if(length(clave) <= 1){
-                cat(paste("The document", ident,"does not contain interventions by legislators or it is not possible to recognize them in the text. \n"))
+                warning(paste("The document", ident,"does not contain interventions by legislators or it is not possible to recognize them in the text. \n"), call. = FALSE)
         }else{
                 clave <- c(clave, length(text))
                 vec_speech <- character(length(clave)-1)
@@ -201,14 +201,12 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 text2 <- text2[stringr::str_detect(text2$speech, "[a-z]"),]
 
                 if(nrow(text2)==0L){
-                        cat(paste("The document", ident,"only contains interventions by the president. \n"))
+                        warning(paste("The document", ident,"only contains interventions by the president. \n"), call. = FALSE)
                 }
                 ## class for compiler ---------------------------------
                 rmhead <- header(file = file)
                 text2$speech <- stringr::str_replace_all(text2$speech, "\\s{2,}", " ")
                 for(i in seq_along(rmhead)){text2$speech <- gsub(x = text2$speech, pattern = rmhead[i], replacement = "", fixed = TRUE)}
-                #rmhead2 <- paste(rmhead[nchar(rmhead) > 5], collapse = "|")
-                #text2$speech <- stringr::str_remove_all(string = text2$speech, pattern = rmhead2)
 
                 if(quality){
                         if(nrow(text2)!=0L){
@@ -270,11 +268,8 @@ header <- function(file){
         strsplit(., split = "\\r") %>%
         lapply(., "[", 1) %>%
         stringr::str_replace_all(pattern = "\\s{2,}", replacement = " ") %>%
-        #stringr::str_replace_all(pattern = "  ", replacement = " ") %>%
         stringr::str_replace_all(pattern = "- ", replacement = "") %>%
         stringr::str_replace_all(pattern = "-|--|<|>", replacement = "")%>%
-        #stringr::str_remove_all(pattern = "[[:punct:]]") %>%
-        #stringr::str_remove_all(pattern = "[^A-Za-z0-9.$*~{}<>-_ ]") %>%
         chartr('\u00c1\u00c9\u00cd\u00d3\u00da','AEIOU',.) %>%
         stringr::str_squish() %>%
         .[stats::complete.cases(.)] %>%
