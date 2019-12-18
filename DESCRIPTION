@@ -2,7 +2,6 @@ Package: speech
 Type: Package
 Title: Legislative Speeches 
 Version: 0.1.0
-Author: Nicolas Schmidt, Diego Lujan, Juan Andres Moraes
 Authors@R: c(person(given = "Nicolas", 
                     family = "Schmidt", 
                     role = c("aut", "cre"), 
