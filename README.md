@@ -11,8 +11,9 @@
 
 ### Description
 
-Contains functions to convert floor speeches of Uruguayan legislators
-from PDF to tidy and clean data.frame.
+Converts the floor speeches of Uruguayan legislators, extracted from the
+parliamentary minutes, to tidy data.frame where each observation is the
+intervention of a single legislator.
 
 ### Installation
 
@@ -157,13 +158,13 @@ text$speech %>%
     dplyr::filter(!stringr::str_detect(word, "^señor")) %>% 
     .[1:40,] %>% 
     ggplot(aes(word, n)) +
-        geom_col(col = "black", fill = "#00A08A",width = .7) +
+        geom_col(col = "black", fill = "#00A08A", width = .7) +
         labs(x = "", y = "") +
         coord_flip() +
         theme_minimal()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="70%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="80%" />
 
 #### Citation
 

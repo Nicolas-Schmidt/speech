@@ -22,7 +22,7 @@ _Nicolas Schmidt, Diego Lujan, Juan Andres Moraes_
 
 ### Description
 
-Contains functions to convert floor speeches of Uruguayan legislators from PDF to tidy and clean data.frame.
+Converts the floor speeches of Uruguayan legislators, extracted from the parliamentary minutes, to tidy data.frame where each observation is the intervention of a single legislator.
 
 ### Installation
 
