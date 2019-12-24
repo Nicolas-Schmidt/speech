@@ -2,7 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -17,8 +16,9 @@ knitr::opts_chunk$set(
 
 _Nicolas Schmidt, Diego Lujan, Juan Andres Moraes_
 
-<!-- badges: start -->
-<!-- badges: end -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/speech)](https://cran.r-project.org/package=speech)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/speech?color=brightgreen)](https://www.r-pkg.org/pkg/speech)
+
 
 ### Description
 
@@ -123,10 +123,10 @@ text$speech %>%
 
 #### Citation
 
-To cite `speech` in publications, please use:
+To cite package`speech` in publications, please use:
 
-``` r
-citation("speech")
+```r
+citation(package = 'speech')
 ```
 
 #### Maintainer

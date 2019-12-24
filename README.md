@@ -1,13 +1,12 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ## The `speech` package <img src='man/figures/logo.png' align="right" height="160" />
 
-*Nicolas Schmidt, Diego Lujan, Juan Andres Moraes*
+*Nicolas Schmidt, Diego Lujan, Juan Andres
+Moraes*
 
-<!-- badges: start -->
-
-<!-- badges: end -->
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/speech)](https://cran.r-project.org/package=speech)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/speech?color=brightgreen)](https://www.r-pkg.org/pkg/speech)
 
 ### Description
 
@@ -171,10 +170,10 @@ text$speech %>%
 
 #### Citation
 
-To cite `speech` in publications, please use:
+To cite package`speech` in publications, please use:
 
 ``` r
-citation("speech")
+citation(package = 'speech')
 ```
 
 #### Maintainer
