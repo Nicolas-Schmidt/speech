@@ -1,5 +1,5 @@
 
-## The `speech` package <img src='man/figures/logo.png' align="right" height="160" />
+## The `speech` package <img src='man/figures/logo.png' align="right" height="180" />
 
 *Nicolas Schmidt, Diego Lujan, Juan Andres
 Moraes*
