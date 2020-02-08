@@ -17,7 +17,8 @@ knitr::opts_chunk$set(
 _Nicolas Schmidt, Diego Lujan, Juan Andres Moraes_
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/speech)](https://cran.r-project.org/package=speech)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/speech?color=brightgreen)](https://www.r-pkg.org/pkg/speech)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
 
 
 ### Description
