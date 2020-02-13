@@ -4,7 +4,7 @@
 *Nicolás Schmidt, Diego Luján, Juan Andrés
 Moraes*
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/speech)](https://cran.r-project.org/package=speech)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
