@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 ## The `speech` package <img src='man/figures/logo.png' align="right" height="180" />
 
-_Nicolas Schmidt, Diego Lujan, Juan Andres Moraes_
+_Nicolás Schmidt, Diego Luján, Juan Andrés Moraes_
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/speech)](https://cran.r-project.org/package=speech)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)

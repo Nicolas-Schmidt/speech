@@ -1,7 +1,7 @@
 
 ## The `speech` package <img src='man/figures/logo.png' align="right" height="180" />
 
-*Nicolas Schmidt, Diego Lujan, Juan Andres
+*Nicolás Schmidt, Diego Luján, Juan Andrés
 Moraes*
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/speech)](https://cran.r-project.org/package=speech)
