@@ -23,10 +23,6 @@ intervention of a single legislator.
 ``` r
 # Install speech from CRAN
 install.packages("speech")
-
-# The development version from GitHub:
-if (!require("remotes")) install.packages("remotes")
-remotes::install_github("Nicolas-Schmidt/speech")
 ```
 
 ### Data generation process
