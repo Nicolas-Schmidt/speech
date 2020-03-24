@@ -1,9 +1,10 @@
 
 ## The `speech` package <img src='man/figures/logo.png' align="right" height="180" />
 
-*Nicolás Schmidt, Diego Luján, Juan Andrés
-Moraes*
+*Nicolás Schmidt, Diego Luján, Juan Andrés Moraes*
 
+[![Travis build
+status](https://travis-ci.com/Nicolas-Schmidt/speech.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/speech)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
