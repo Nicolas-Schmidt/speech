@@ -2,3 +2,13 @@
 
 language: R
 cache: packages
+
+complementos :
+  apto :
+    paquetes :
+      - libwebp-dev
+      - libpoppler-cpp-dev
+      - datos poppler
+      - libtesseract-dev
+      - libleptonica-dev
+      - tesseract-ocr-eng
