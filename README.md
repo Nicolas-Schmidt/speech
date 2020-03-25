@@ -3,14 +3,18 @@
 
 *Nicolás Schmidt, Diego Luján, Juan Andrés Moraes*
 
-[![Travis build
-status](https://travis-ci.com/Nicolas-Schmidt/speech.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/speech)
+<!-- badges: start -->
+
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Travis build
+status](https://travis-ci.com/Nicolas-Schmidt/speech.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/speech)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
+
+<!-- badges: end -->
 
 ### Description
 
