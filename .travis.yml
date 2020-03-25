@@ -4,12 +4,12 @@ language: R
 sudo: false
 cache: packages
 
-complementos :
-  apto :
-    paquetes :
+addons:
+  apt:
+    packages:
       - libwebp-dev
       - libpoppler-cpp-dev
-      - datos poppler
+      - poppler-data
       - libtesseract-dev
       - libleptonica-dev
       - tesseract-ocr-eng
