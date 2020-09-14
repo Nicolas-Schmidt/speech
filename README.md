@@ -8,6 +8,7 @@
 [![R build
 status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
+[![](https://img.shields.io/badge/devel%20version-0.1.1-blue.svg)](https://github.com/Nicolas-Schmidt/speech)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -183,21 +184,24 @@ To cite package`speech` in publications, please use:
 
 ``` r
 citation(package = 'speech')
+#> Warning in citation(package = "speech"): no date field in DESCRIPTION file of
+#> package 'speech'
+#> Warning in citation(package = "speech"): could not determine year for 'speech'
+#> from package DESCRIPTION file
 #> 
 #> To cite package 'speech' in publications use:
 #> 
-#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (2019). speech:
-#>   Legislative Speeches. R package version 0.1.0.
-#>   https://CRAN.R-project.org/package=speech
+#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (NA). speech:
+#>   Legislative Speeches. R package version 0.1.1.
+#>   https://github.com/Nicolas-Schmidt/speech
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {speech: Legislative Speeches},
 #>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
-#>     year = {2019},
-#>     note = {R package version 0.1.0},
-#>     url = {https://CRAN.R-project.org/package=speech},
+#>     note = {R package version 0.1.1},
+#>     url = {https://github.com/Nicolas-Schmidt/speech},
 #>   }
 ```
 
