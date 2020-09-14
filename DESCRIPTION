@@ -1,7 +1,7 @@
 Package: speech
 Type: Package
 Title: Legislative Speeches 
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(person(given = "Nicolas", 
                     family = "Schmidt", 
                     role = c("aut", "cre"), 
@@ -32,4 +32,4 @@ Imports:
     tm, 
     tidyr, 
     pdftools
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0

@@ -6,7 +6,7 @@
 \usage{
 speech_recompiler(
   tidy_speech,
-  compiler_by = c("legislator", "party", "legislature", "chamber")
+  compiler_by = c("legislator", "legislature", "chamber", "date", "id")
 )
 }
 \arguments{

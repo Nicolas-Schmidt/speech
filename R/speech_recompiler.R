@@ -18,7 +18,7 @@
 #' @export
 
 speech_recompiler <- function(tidy_speech,
-                              compiler_by = c("legislator", "party", "legislature", "chamber")){
+                              compiler_by = c("legislator", "legislature", "chamber", "date", "id")){
     compiler(tidy_speech = tidy_speech, compiler_by = compiler_by)
 }
 

@@ -62,10 +62,10 @@
 #'                      rm.error.leg = c("PRtSIDENTE", "SUB", "PRfSlENTE"),
 #'                      param = list(char = 6000, drop.page = 3))
 #'
-#' out <- list.files(pattern = "*.pdf") %>% speech_build()
+#' # out <- list.files(pattern = "*.pdf") %>% speech_build()
 #'
-#' out <- list.files(pattern = "*.pdf") %>%
-#'     speech_build(., compiler = TRUE, param = list(char = 4500, drop.page = 3))
+#' # out <- list.files(pattern = "*.pdf") %>%
+#' #     speech_build(., compiler = TRUE, param = list(char = 4500, drop.page = 3))
 #' }
 #' @export
 
