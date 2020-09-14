@@ -9,8 +9,6 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Travis build
-status](https://travis-ci.com/Nicolas-Schmidt/speech.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/speech)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
 [![DOI](https://zenodo.org/badge/227908962.svg)](https://zenodo.org/badge/latestdoi/227908962)
@@ -159,7 +157,6 @@ text$speech %>%
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 3.6.3
 
 text$speech %>% 
     minchar(., min = 4) %>%  
