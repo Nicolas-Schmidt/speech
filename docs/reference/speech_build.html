@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">speech</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -221,10 +221,11 @@ non evaluate" respectively. The default values are the median characters of
                      <span class='kw'>rm.error.leg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"PRtSIDENTE"</span>, <span class='st'>"SUB"</span>, <span class='st'>"PRfSlENTE"</span>),
                      <span class='kw'>param</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>char</span> <span class='kw'>=</span> <span class='fl'>6000</span>, <span class='kw'>drop.page</span> <span class='kw'>=</span> <span class='fl'>3</span>))
 
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span>(<span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>"*.pdf"</span>) <span class='kw'>%&gt;%</span> <span class='fu'>speech_build</span>()</div><div class='output co'>#&gt; <span class='error'>Error in !unlist(lapply(out, is.null)): argumento de tipo inválido</span></div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span>(<span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>"*.pdf"</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'>speech_build</span>(<span class='no'>.</span>, <span class='kw'>compiler</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>param</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>char</span> <span class='kw'>=</span> <span class='fl'>4500</span>, <span class='kw'>drop.page</span> <span class='kw'>=</span> <span class='fl'>3</span>))</div><div class='output co'>#&gt; <span class='error'>Error in !unlist(lapply(out, is.null)): argumento de tipo inválido</span></div><div class='input'># }
-</div></pre>
+<span class='co'># out &lt;- list.files(pattern = "*.pdf") %&gt;% speech_build()</span>
+
+<span class='co'># out &lt;- list.files(pattern = "*.pdf") %&gt;%</span>
+<span class='co'>#     speech_build(., compiler = TRUE, param = list(char = 4500, drop.page = 3))</span>
+<span class='co'># }</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
