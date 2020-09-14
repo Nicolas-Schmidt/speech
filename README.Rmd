@@ -130,7 +130,7 @@ text$speech %>%
 
 To cite package`speech` in publications, please use:
 
-```r
+```{r}
 citation(package = 'speech')
 ```
 

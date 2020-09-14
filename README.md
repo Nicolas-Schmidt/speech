@@ -183,6 +183,22 @@ To cite package`speech` in publications, please use:
 
 ``` r
 citation(package = 'speech')
+#> 
+#> To cite package 'speech' in publications use:
+#> 
+#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (2019). speech:
+#>   Legislative Speeches. R package version 0.1.0.
+#>   https://CRAN.R-project.org/package=speech
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {speech: Legislative Speeches},
+#>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
+#>     year = {2019},
+#>     note = {R package version 0.1.0},
+#>     url = {https://CRAN.R-project.org/package=speech},
+#>   }
 ```
 
 #### Maintainer
