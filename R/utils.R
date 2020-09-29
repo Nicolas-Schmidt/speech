@@ -162,13 +162,14 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 ## date --------------------------------------------------------
                 meses <- aux("meses")
                 fe <- stringr::str_which(toupper(text[1:150]), pattern = meses)
-                if(length(fe)!=0){
+                if(length(fe) != 0){
                         suppressWarnings(
                                 fdiario <- c(text[fe[1]-2], text[fe[1]], substring(text[fe[1]+2], 1, 4)) %>%
                                         paste(., collapse = " ") %>%
                                         stringr::str_squish()%>%
                                         lubridate::parse_date_time(order = "dmy")
                         )
+                        fdiario <- as.Date(fdiario)
                 }else{
                         fdiario <- NA
                 }
@@ -245,6 +246,8 @@ compiler <- function(tidy_speech, compiler_by = character()){
         dplyr::bind_cols(cby,.) %>%
         tidyr::separate('varid', into = compiler_by , sep = "__")
 
+    if("legislature" %in% compiler_by){out$legislature <- as.numeric(out$legislature)}
+    if("date" %in% compiler_by){out$date <- as.Date(out$date)}
     class(out) <- c(attributes(out)$class, "puy")
     invisible(out)
 
@@ -293,7 +296,9 @@ separate_sir <- function(vec){
     vec
 }
 
-
-
-
+declass <- function(.x){
+    cl <- attributes(.x)$class
+    class(.x) <- c(cl[-which(cl == "puy")])
+    return(.x)
+}
 

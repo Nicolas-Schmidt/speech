@@ -1,3 +1,4 @@
+
 #' @title Rename legislators
 #' @description allows to modify the legislators' name prior to compiling the data.
 #' @param tidy_speech data.frame class \code{puy}.
@@ -22,16 +23,9 @@ speech_legis_replace <- function(tidy_speech, old, new, id = NULL){
         tidy_speech[tidy_speech$legislator == old & tidy_speech$id == id, "legislator"] <- new
     }else{
         tidy_speech[tidy_speech$legislator == old, "legislator"] <- new
-        }
+    }
     return(tidy_speech)
 }
-
-
-
-
-
-
-
 
 
 

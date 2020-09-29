@@ -1,7 +1,6 @@
 #' @title Speech recompiler
-#' @description It allows to recompile an object of the \code{puy} class, the datasets
-#'     speech or a data.frame built with \code{speech_build} to which the
-#'     variable political party was added.
+#' @description It allows to recompile the datasets speech or a data.frame built with
+#'     \code{speech_build} to which the variable political party was added.
 #' @param tidy_speech data.frame.
 #' @param compiler_by character vector. Variables for which you may want to recompile the data frame.
 #' @return data.frame.

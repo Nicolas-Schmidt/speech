@@ -18,9 +18,8 @@ speech_recompiler(
 data.frame.
 }
 \description{
-It allows to recompile an object of the \code{puy} class, the datasets
-    speech or a data.frame built with \code{speech_build} to which the
-    variable political party was added.
+It allows to recompile the datasets speech or a data.frame built with
+    \code{speech_build} to which the variable political party was added.
 }
 \details{
 The default compilation is that of \ code {speech_build (., compiler = TRUE}).

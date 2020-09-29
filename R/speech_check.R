@@ -1,7 +1,7 @@
 #' @title Check the names of legislators
 #' @description It allows to check that the names of the legislators are
 #'     correctly written before compiling the documents in \code{speech_build}.
-#' @param tidy_speech data.frame class \code{puy}
+#' @param tidy_speech data.frame.
 #' @param initial character vector. Initial of the legislators' names. If no
 #'     initial is entered, all will be checked.
 #' @param expand logical. If \code{TRUE}, the legislature to which the name of the legislator
@@ -18,10 +18,9 @@
 
 speech_check <- function(tidy_speech, initial, expand = FALSE){
 
-        if(!inherits(tidy_speech, "puy")){stop("Input is not of class 'puy'.", call. = FALSE)}
         tidy_speech$legislator <- as.character(tidy_speech$legislator)
         out <- tidy_speech %>%
-                dplyr::mutate('init' = toupper(substring(.$legislator, 1, 1))) %>%
+                transform('init' = toupper(substring(.$legislator, 1, 1))) %>%
                 dplyr::select('legislator', 'legislature', 'init') %>%
                 dplyr::distinct() %>%
                 as.data.frame() %>%
