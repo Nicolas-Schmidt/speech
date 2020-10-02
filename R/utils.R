@@ -295,10 +295,3 @@ separate_sir <- function(vec){
     }
     vec
 }
-
-declass <- function(.x){
-    cl <- attributes(.x)$class
-    class(.x) <- c(cl[-which(cl == "puy")])
-    return(.x)
-}
-
