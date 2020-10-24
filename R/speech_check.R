@@ -28,15 +28,28 @@ speech_check <- function(tidy_speech, initial, expand = FALSE){
                 base::split(., .$init)
 
         if(expand){
+
                 out <- lapply(out, "[", -3)
-        }else{
-                out <- out %>% lapply(., "[", 1) %>% lapply(.,dplyr::distinct)
+
+        } else {
+
+                out <- out %>%
+                        lapply(., "[", 1) %>%
+                        lapply(., dplyr::distinct)
+
         }
-        for(i in 1:length(out)){rownames(out[[i]]) <- NULL}
+
+        for(i in 1:length(out)){
+                rownames(out[[i]]) <- NULL
+        }
+
         if(!missing(initial)){
+
                 initial <- toupper(initial)
                 return(out[initial])
-        }else{
+
+        } else {
+
                 return(out)
         }
 }

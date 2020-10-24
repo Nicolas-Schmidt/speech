@@ -38,7 +38,11 @@ speech_word_count <- function(string, exclude = NULL, min.char = 0L, rm.long = I
         gsub(pattern = "\n|\t", replacement = " ", x = .) %>%
         gsub(pattern = "[[:punct:]]", replacement = replace.punct, x = .)
 
-    if(rm.num){string <- stringr::str_remove_all(string,pattern = "\\d")}
+    if(rm.num){
+
+        string <- stringr::str_remove_all(string,pattern = "\\d")
+
+    }
 
     string %>%
     strsplit(., split = " ") %>%

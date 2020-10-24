@@ -72,21 +72,31 @@
 speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler = FALSE,
                    quality = FALSE, param = list(char = 6500, drop.page = 2)){
 
-        out <- file %>%
+        out <-
+                file %>%
                 purrr::map(speech.pow,
                            add.error.sir = add.error.sir,
                            rm.error.leg = rm.error.leg,
                            quality = quality,
                            param = list(char = param$char, drop.page = param$drop.page)
                 )
+
         out <- out[!unlist(lapply(out, is.null))]
         out <- out[purrr::map_int(out, nrow) != 0]
         out <- do.call(rbind, out)
         out$speech <- stringr::str_squish(out$speech)
+
         if(compiler){
+
             compiler(tidy_speech = out,
-                     compiler_by = c("legislator", "legislature", "chamber", "date", "id"))
-        }else{
+                     compiler_by = c("legislator",
+                                     "legislature",
+                                     "chamber",
+                                     "date",
+                                     "id"))
+
+        } else {
+
             invisible(out)
         }
 }
