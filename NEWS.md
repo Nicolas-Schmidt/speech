@@ -1,4 +1,7 @@
 
+# speech 0.1.2
+
+- add variable sex
 
 # speech 0.1.1
 

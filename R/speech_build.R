@@ -42,6 +42,7 @@
 #'             \item{\code{date}: session date}
 #'             \item{\code{id}: name \code{file}}
 #'             \item{\code{legislature}: legislature id (period of government)}
+#'             \item{\code{sex}: sex}
 #'             \item{\code{chamber}: chamber to which the document belongs.
 #'             It can be: Chamber of Representatives, Senate, General Assembly or Permanent Commission.}
 #'            }
@@ -97,7 +98,7 @@ speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compil
 
         } else {
 
-            invisible(out)
+            invisible(add_sex(out))
         }
 }
 

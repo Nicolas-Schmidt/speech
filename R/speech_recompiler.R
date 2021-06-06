@@ -21,7 +21,8 @@ speech_recompiler <- function(tidy_speech,
                                               "legislature",
                                               "chamber",
                                               "date",
-                                              "id")){
+                                              "id",
+                                              "sex")){
 
     compiler(tidy_speech = tidy_speech, compiler_by = compiler_by)
 

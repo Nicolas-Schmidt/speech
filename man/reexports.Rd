@@ -13,8 +13,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{lubridate}{\code{\link[lubridate]{\%within\%}}, \code{\link[lubridate]{ymd}}}
+  \item{lubridate}{\code{\link[lubridate:within-interval]{\%within\%}}, \code{\link[lubridate]{ymd}}}
 
-  \item{magrittr}{\code{\link[magrittr]{\%>\%}}}
+  \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 }}
 

@@ -567,7 +567,7 @@ compiler <- function(tidy_speech, compiler_by = character()){
         out$date <- as.Date(out$date)
         }
     class(out) <- c(attributes(out)$class, "puy")
-    invisible(out)
+    invisible(add_sex(out))
 
 }
 
@@ -615,3 +615,12 @@ separate_sir <- function(vec){
     }
     vec
 }
+
+
+add_sex <- function(data){
+    data$sex <- ifelse(stringr::str_detect(data$speech, pattern = "^SE\u00d1ORA"), 0, 1)
+    data
+
+}
+
+

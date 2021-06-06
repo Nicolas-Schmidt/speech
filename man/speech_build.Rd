@@ -52,6 +52,7 @@ data.frame class \code{puy} with the following variables:
             \item{\code{date}: session date}
             \item{\code{id}: name \code{file}}
             \item{\code{legislature}: legislature id (period of government)}
+            \item{\code{sex}: sex}
             \item{\code{chamber}: chamber to which the document belongs.
             It can be: Chamber of Representatives, Senate, General Assembly or Permanent Commission.}
            }
