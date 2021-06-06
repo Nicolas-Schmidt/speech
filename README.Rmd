@@ -105,7 +105,7 @@ text$speech %>%
     minchar(., min = 4) %>%  
     quanteda::corpus() %>% 
     quanteda::dfm(remove = c("señor", "señora")) %>% 
-    quanteda::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
+    quanteda.textplots::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
 
 ```
 

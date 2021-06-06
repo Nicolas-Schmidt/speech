@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
-[![](https://img.shields.io/badge/devel%20version-0.1.1-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
+[![](https://img.shields.io/badge/devel%20version-0.1.2-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
 [![R build
 status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
 [![Project Status: Active – The project has reached a stable, usable
@@ -60,19 +60,19 @@ library(speech)
 url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diario-de-sesion/comisionpermanente/6084/IMG/0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollow"
 text <- speech::speech_build(file = url)
 text
-#> # A tibble: 24 x 6
-#>    legislator speech              chamber   date       legislature id           
-#>    <chr>      <chr>               <chr>     <date>           <dbl> <chr>        
-#>  1 BORDABERRY SEÑOR BORDABERRY. ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  2 BORDABERRY SEÑOR BORDABERRY. ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  3 AVIAGA     SEÑORA AVIAGA. Pid~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  4 AVIAGA     SEÑORA AVIAGA. En ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  5 GOI        SEÑOR GOÑI. Pido l~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  6 GOI        SEÑOR GOÑI. El Fre~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  7 MAHIA      SEÑOR MAHIA. Pido ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  8 MAHIA      SEÑOR MAHIA. Graci~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  9 ABDALA     SEÑOR ABDALA. Voto~ COMISION~ 2019-09-17          48 0?width=800&~
-#> 10 ASTI       SEÑOR ASTI. Obviam~ COMISION~ 2019-09-17          48 0?width=800&~
+#> # A tibble: 24 x 7
+#>    legislator speech          chamber   date       legislature id            sex
+#>    <chr>      <chr>           <chr>     <date>           <dbl> <chr>       <dbl>
+#>  1 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  2 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  3 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
+#>  4 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
+#>  5 GOI        SEÑOR GOÑI. Pi~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  6 GOI        SEÑOR GOÑI. El~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  7 MAHIA      SEÑOR MAHIA. P~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  8 MAHIA      SEÑOR MAHIA. G~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  9 ABDALA     SEÑOR ABDALA. ~ COMISION~ 2019-09-17          48 0?width=80~     1
+#> 10 ASTI       SEÑOR ASTI. Ob~ COMISION~ 2019-09-17          48 0?width=80~     1
 #> # ... with 14 more rows
 
 
@@ -91,50 +91,51 @@ speech_check(text, initial = c("A", "M"))
 
 text <- speech_legis_replace(tidy_speech = text, old = "GOI", new = "GOÑI")
 text
-#> # A tibble: 24 x 6
-#>    legislator speech              chamber   date       legislature id           
-#>    <chr>      <chr>               <chr>     <date>           <dbl> <chr>        
-#>  1 BORDABERRY SEÑOR BORDABERRY. ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  2 BORDABERRY SEÑOR BORDABERRY. ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  3 AVIAGA     SEÑORA AVIAGA. Pid~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  4 AVIAGA     SEÑORA AVIAGA. En ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  5 GOÑI       SEÑOR GOÑI. Pido l~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  6 GOÑI       SEÑOR GOÑI. El Fre~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  7 MAHIA      SEÑOR MAHIA. Pido ~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  8 MAHIA      SEÑOR MAHIA. Graci~ COMISION~ 2019-09-17          48 0?width=800&~
-#>  9 ABDALA     SEÑOR ABDALA. Voto~ COMISION~ 2019-09-17          48 0?width=800&~
-#> 10 ASTI       SEÑOR ASTI. Obviam~ COMISION~ 2019-09-17          48 0?width=800&~
+#> # A tibble: 24 x 7
+#>    legislator speech          chamber   date       legislature id            sex
+#>    <chr>      <chr>           <chr>     <date>           <dbl> <chr>       <dbl>
+#>  1 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  2 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  3 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
+#>  4 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
+#>  5 GOÑI       SEÑOR GOÑI. Pi~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  6 GOÑI       SEÑOR GOÑI. El~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  7 MAHIA      SEÑOR MAHIA. P~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  8 MAHIA      SEÑOR MAHIA. G~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  9 ABDALA     SEÑOR ABDALA. ~ COMISION~ 2019-09-17          48 0?width=80~     1
+#> 10 ASTI       SEÑOR ASTI. Ob~ COMISION~ 2019-09-17          48 0?width=80~     1
 #> # ... with 14 more rows
 
 text <- speech::speech_build(file = url, compiler = TRUE)
 text
-#> # A tibble: 11 x 6
-#>    legislator legislature chamber    date       id            speech            
-#>    <chr>            <dbl> <chr>      <date>     <chr>         <chr>             
-#>  1 ABDALA              48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR ABDALA. Vot~
-#>  2 ASTI                48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR ASTI. Obvia~
-#>  3 AVIAGA              48 COMISION ~ 2019-09-17 0?width=800&~ SEÑORA AVIAGA. Pi~
-#>  4 BORDABERRY          48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR BORDABERRY.~
-#>  5 GOI                 48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR GOÑI. Pido ~
-#>  6 LAZO                48 COMISION ~ 2019-09-17 0?width=800&~ SEÑORA LAZO. Voto~
-#>  7 MAHIA               48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR MAHIA. Pido~
-#>  8 MERONI              48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR MERONI. Vot~
-#>  9 PEREYRA             48 COMISION ~ 2019-09-17 0?width=800&~ SEÑORA PEREYRA. C~
-#> 10 TOURNE              48 COMISION ~ 2019-09-17 0?width=800&~ SEÑORA TOURNE. Vo~
-#> 11 VIERA               48 COMISION ~ 2019-09-17 0?width=800&~ SEÑOR VIERA. Voto~
+#> # A tibble: 11 x 7
+#>    legislator legislature chamber   date       id           speech           sex
+#>    <chr>            <dbl> <chr>     <date>     <chr>        <chr>          <dbl>
+#>  1 ABDALA              48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ABDALA.~     1
+#>  2 ASTI                48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ASTI. O~     1
+#>  3 AVIAGA              48 COMISION~ 2019-09-17 0?width=800~ SEÑORA AVIAGA~     0
+#>  4 BORDABERRY          48 COMISION~ 2019-09-17 0?width=800~ SEÑOR BORDABE~     1
+#>  5 GOI                 48 COMISION~ 2019-09-17 0?width=800~ SEÑOR GOÑI. P~     1
+#>  6 LAZO                48 COMISION~ 2019-09-17 0?width=800~ SEÑORA LAZO. ~     0
+#>  7 MAHIA               48 COMISION~ 2019-09-17 0?width=800~ SEÑOR MAHIA. ~     1
+#>  8 MERONI              48 COMISION~ 2019-09-17 0?width=800~ SEÑOR MERONI.~     1
+#>  9 PEREYRA             48 COMISION~ 2019-09-17 0?width=800~ SEÑORA PEREYR~     0
+#> 10 TOURNE              48 COMISION~ 2019-09-17 0?width=800~ SEÑORA TOURNE~     0
+#> 11 VIERA               48 COMISION~ 2019-09-17 0?width=800~ SEÑOR VIERA. ~     1
 
 
 text$word <- speech_word_count(text$speech)
 
 dplyr::glimpse(text)
 #> Rows: 11
-#> Columns: 7
-#> $ legislator  <chr> "ABDALA", "ASTI", "AVIAGA", "BORDABERRY", "GOI", "LAZO"...
+#> Columns: 8
+#> $ legislator  <chr> "ABDALA", "ASTI", "AVIAGA", "BORDABERRY", "GOI", "LAZO", "~
 #> $ legislature <dbl> 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48
-#> $ chamber     <chr> "COMISION PERMANENTE", "COMISION PERMANENTE", "COMISION...
-#> $ date        <date> 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17, 2019-0...
-#> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofol...
-#> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tou...
+#> $ chamber     <chr> "COMISION PERMANENTE", "COMISION PERMANENTE", "COMISION PE~
+#> $ date        <date> 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17~
+#> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~
+#> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné~
+#> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
 #> $ word        <int> 400, 46, 107, 963, 100, 103, 128, 12, 12, 111, 8
 ```
 
@@ -153,7 +154,9 @@ text$speech %>%
     minchar(., min = 4) %>%  
     quanteda::corpus() %>% 
     quanteda::dfm(remove = c("señor", "señora")) %>% 
-    quanteda::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
+    quanteda.textplots::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
+#> Warning: 'dfm.corpus()' is deprecated. Use 'tokens()' first.
+#> Warning: 'remove' is deprecated; use dfm_remove() instead
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -192,7 +195,7 @@ citation(package = 'speech')
 #> To cite package 'speech' in publications use:
 #> 
 #>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (NA). speech:
-#>   Legislative Speeches. R package version 0.1.1.
+#>   Legislative Speeches. R package version 0.1.2.
 #>   https://github.com/Nicolas-Schmidt/speech
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -200,7 +203,7 @@ citation(package = 'speech')
 #>   @Manual{,
 #>     title = {speech: Legislative Speeches},
 #>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
-#>     note = {R package version 0.1.1},
+#>     note = {R package version 0.1.2},
 #>     url = {https://github.com/Nicolas-Schmidt/speech},
 #>   }
 ```
