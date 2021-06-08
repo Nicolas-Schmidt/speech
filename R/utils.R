@@ -454,7 +454,7 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 legis <- legis %>%
                         stringr::str_remove_all(pattern = "(SE\u00d1ORES|SE\u00d1ORA|SE\u00d1OR)") %>%
                         stringr::str_remove_all(pattern = "[^[:alnum:][:blank:]?/\\:-]") %>%
-                        stringr::str_remove_all(pattern = "[^A-z. ]") %>%  ### check A-Z or A-z
+                        stringr::str_remove_all(pattern = "[^A-z\u00d1\u00F1. ]") %>%  ### check A-Z or A-z
                         stringr::str_squish()
 
                 ## date --------------------------------------------------------

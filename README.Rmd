@@ -77,9 +77,6 @@ text
 speech_check(text, initial = c("A", "M"))
 
 
-text <- speech_legis_replace(tidy_speech = text, old = "GOI", new = "GOÑI")
-text
-
 text <- speech::speech_build(file = url, compiler = TRUE)
 text
 
@@ -92,7 +89,7 @@ dplyr::glimpse(text)
 
 
 ### Possible application
-```{r, out.width = "100%"}
+```{r, out.width = "100%", warning=FALSE}
 library(magrittr)
 
 minchar <- function(string, min = 3){
@@ -131,7 +128,7 @@ text$speech %>%
 
 To cite package`speech` in publications, please use:
 
-```{r}
+```{r, warning=FALSE}
 citation(package = 'speech')
 ```
 

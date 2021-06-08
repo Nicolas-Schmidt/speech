@@ -67,8 +67,8 @@ text
 #>  2 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
 #>  3 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
 #>  4 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
-#>  5 GOI        SEÑOR GOÑI. Pi~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  6 GOI        SEÑOR GOÑI. El~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  5 GOÑI       SEÑOR GOÑI. Pi~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>  6 GOÑI       SEÑOR GOÑI. El~ COMISION~ 2019-09-17          48 0?width=80~     1
 #>  7 MAHIA      SEÑOR MAHIA. P~ COMISION~ 2019-09-17          48 0?width=80~     1
 #>  8 MAHIA      SEÑOR MAHIA. G~ COMISION~ 2019-09-17          48 0?width=80~     1
 #>  9 ABDALA     SEÑOR ABDALA. ~ COMISION~ 2019-09-17          48 0?width=80~     1
@@ -89,23 +89,6 @@ speech_check(text, initial = c("A", "M"))
 #> 2     MERONI
 
 
-text <- speech_legis_replace(tidy_speech = text, old = "GOI", new = "GOÑI")
-text
-#> # A tibble: 24 x 7
-#>    legislator speech          chamber   date       legislature id            sex
-#>    <chr>      <chr>           <chr>     <date>           <dbl> <chr>       <dbl>
-#>  1 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  2 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  3 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
-#>  4 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
-#>  5 GOÑI       SEÑOR GOÑI. Pi~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  6 GOÑI       SEÑOR GOÑI. El~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  7 MAHIA      SEÑOR MAHIA. P~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  8 MAHIA      SEÑOR MAHIA. G~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  9 ABDALA     SEÑOR ABDALA. ~ COMISION~ 2019-09-17          48 0?width=80~     1
-#> 10 ASTI       SEÑOR ASTI. Ob~ COMISION~ 2019-09-17          48 0?width=80~     1
-#> # ... with 14 more rows
-
 text <- speech::speech_build(file = url, compiler = TRUE)
 text
 #> # A tibble: 11 x 7
@@ -115,7 +98,7 @@ text
 #>  2 ASTI                48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ASTI. O~     1
 #>  3 AVIAGA              48 COMISION~ 2019-09-17 0?width=800~ SEÑORA AVIAGA~     0
 #>  4 BORDABERRY          48 COMISION~ 2019-09-17 0?width=800~ SEÑOR BORDABE~     1
-#>  5 GOI                 48 COMISION~ 2019-09-17 0?width=800~ SEÑOR GOÑI. P~     1
+#>  5 GOÑI                48 COMISION~ 2019-09-17 0?width=800~ SEÑOR GOÑI. P~     1
 #>  6 LAZO                48 COMISION~ 2019-09-17 0?width=800~ SEÑORA LAZO. ~     0
 #>  7 MAHIA               48 COMISION~ 2019-09-17 0?width=800~ SEÑOR MAHIA. ~     1
 #>  8 MERONI              48 COMISION~ 2019-09-17 0?width=800~ SEÑOR MERONI.~     1
@@ -129,7 +112,7 @@ text$word <- speech_word_count(text$speech)
 dplyr::glimpse(text)
 #> Rows: 11
 #> Columns: 8
-#> $ legislator  <chr> "ABDALA", "ASTI", "AVIAGA", "BORDABERRY", "GOI", "LAZO", "~
+#> $ legislator  <chr> "ABDALA", "ASTI", "AVIAGA", "BORDABERRY", "GOÑI", "LAZO", ~
 #> $ legislature <dbl> 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48
 #> $ chamber     <chr> "COMISION PERMANENTE", "COMISION PERMANENTE", "COMISION PE~
 #> $ date        <date> 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17~
@@ -155,8 +138,6 @@ text$speech %>%
     quanteda::corpus() %>% 
     quanteda::dfm(remove = c("señor", "señora")) %>% 
     quanteda.textplots::textplot_wordcloud(color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
-#> Warning: 'dfm.corpus()' is deprecated. Use 'tokens()' first.
-#> Warning: 'remove' is deprecated; use dfm_remove() instead
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -187,10 +168,6 @@ To cite package`speech` in publications, please use:
 
 ``` r
 citation(package = 'speech')
-#> Warning in citation(package = "speech"): no date field in DESCRIPTION file of
-#> package 'speech'
-#> Warning in citation(package = "speech"): could not determine year for 'speech'
-#> from package DESCRIPTION file
 #> 
 #> To cite package 'speech' in publications use:
 #> 
