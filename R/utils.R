@@ -514,7 +514,7 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 for(i in seq_along(rmhead)){text2$speech <- gsub(x = text2$speech, pattern = rmhead[i], replacement = "", fixed = TRUE)}
 
                 if(quality){
-                        if(nrow(text2)!=0L){
+                        if(nrow(text2) != 0L){
                                 n1 <- sum(nchar(text)) + length(text)
                                 index_1 <- (param$char * (length(rmhead) - param$drop.page))/n1
                                 index_2 <- sum(nchar(text2$speech))/n1
@@ -564,6 +564,7 @@ compiler <- function(tidy_speech, compiler_by = character()){
     }
 
     if("date" %in% compiler_by){
+        if(is.character(out$date)){out$date <- NA}
         out$date <- as.Date(out$date)
         }
     class(out) <- c(attributes(out)$class, "puy")
