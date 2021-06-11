@@ -566,7 +566,13 @@ compiler <- function(tidy_speech, compiler_by = character()){
     if("date" %in% compiler_by){
         if(is.character(out$date)){out$date <- NA}
         out$date <- as.Date(out$date)
-        }
+    }
+
+    if("index_1" %in% names(tidy_speech)){
+        out$index_1 <- unique(tidy_speech$index_1)
+        out$index_2 <- unique(tidy_speech$index_2)
+    }
+
     class(out) <- c(attributes(out)$class, "puy")
     invisible(add_sex(out))
 

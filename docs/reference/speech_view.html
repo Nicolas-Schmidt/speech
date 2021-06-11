@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">speech</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,7 +102,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/Nicolas-Schmidt/speech/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -128,7 +128,7 @@
     <p>Allows to see the legislators' names with problems prior to compiling the data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>speech_view</span>(<span class='no'>tidy_speech</span>, <span class='kw'>legis</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(), <span class='kw'>view</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>speech_view</span><span class='op'>(</span><span class='va'>tidy_speech</span>, legis <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, view <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,15 +154,16 @@ legislators' interventions (<code>legis</code>). By default is <code>FALSE</code
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>"http://bit.ly/35AUVF4"</span>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='speech_build.html'>speech_build</a></span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>url</span>)
-<span class='fu'>speech_view</span>(<span class='kw'>tidy_speech</span> <span class='kw'>=</span> <span class='no'>out</span>, <span class='kw'>legis</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ABDALA"</span>, <span class='st'>"LAZO"</span>), <span class='kw'>view</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 4 x 6</span><span>
-#&gt;   legislator speech                      chamber    date       legislature id   
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> ABDALA     SEÑOR ABDALA. Voto por la ~ COMISION ~ 2019-09-17          48 35AU~
-#&gt; </span><span style='color: #555555;'>2</span><span> LAZO       SEÑORA LAZO. Voto por la c~ COMISION ~ 2019-09-17          48 35AU~
-#&gt; </span><span style='color: #555555;'>3</span><span> ABDALA     SEÑOR ABDALA. Pido la pala~ COMISION ~ 2019-09-17          48 35AU~
-#&gt; </span><span style='color: #555555;'>4</span><span> ABDALA     SEÑOR ABDALA. Señora presi~ COMISION ~ 2019-09-17          48 35AU~</div><div class='input'># }
+<span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"http://bit.ly/35AUVF4"</span>
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='speech_build.html'>speech_build</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='va'>url</span><span class='op'>)</span>
+<span class='fu'>speech_view</span><span class='op'>(</span>tidy_speech <span class='op'>=</span> <span class='va'>out</span>, legis <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ABDALA"</span>, <span class='st'>"LAZO"</span><span class='op'>)</span>, view <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 4 x 7</span><span>
+#&gt;   legislator speech                 chamber   date       legislature id      sex
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> ABDALA     SEÑOR ABDALA. Voto po~ COMISION~ 2019-09-17          48 35AU~     1
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> LAZO       SEÑORA LAZO. Voto por~ COMISION~ 2019-09-17          48 35AU~     0
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> ABDALA     SEÑOR ABDALA. Pido la~ COMISION~ 2019-09-17          48 35AU~     1
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> ABDALA     SEÑOR ABDALA. Señora ~ COMISION~ 2019-09-17          48 35AU~     1</div><div class='input'><span class='co'># }</span>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -179,7 +180,7 @@ legislators' interventions (<code>legis</code>). By default is <code>FALSE</code
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
