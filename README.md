@@ -62,7 +62,7 @@ text <- speech::speech_build(file = url)
 text
 #> # A tibble: 24 x 7
 #>    legislator speech          chamber   date       legislature id            sex
-#>    <chr>      <chr>           <chr>     <date>           <dbl> <chr>       <dbl>
+#>    <chr>      <chr>           <chr>     <date>           <int> <chr>       <dbl>
 #>  1 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
 #>  2 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
 #>  3 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
@@ -93,7 +93,7 @@ text <- speech::speech_build(file = url, compiler = TRUE)
 text
 #> # A tibble: 11 x 7
 #>    legislator legislature chamber   date       id           speech           sex
-#>    <chr>            <dbl> <chr>     <date>     <chr>        <chr>          <dbl>
+#>    <chr>            <int> <chr>     <date>     <chr>        <chr>          <dbl>
 #>  1 ABDALA              48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ABDALA.~     1
 #>  2 ASTI                48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ASTI. O~     1
 #>  3 AVIAGA              48 COMISION~ 2019-09-17 0?width=800~ SEÑORA AVIAGA~     0
@@ -113,7 +113,7 @@ dplyr::glimpse(text)
 #> Rows: 11
 #> Columns: 8
 #> $ legislator  <chr> "ABDALA", "ASTI", "AVIAGA", "BORDABERRY", "GOÑI", "LAZO", ~
-#> $ legislature <dbl> 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48
+#> $ legislature <int> 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48
 #> $ chamber     <chr> "COMISION PERMANENTE", "COMISION PERMANENTE", "COMISION PE~
 #> $ date        <date> 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17~
 #> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~

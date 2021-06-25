@@ -98,7 +98,7 @@ speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compil
 
         } else {
 
-            invisible(add_sex(out))
+            invisible(add_sex(clean_t(out)))
         }
 }
 

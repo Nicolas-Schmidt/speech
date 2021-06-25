@@ -1,14 +1,6 @@
 #' @importFrom magrittr %>%
-#' @export
-magrittr::`%>%`
-
-#' @importFrom lubridate ymd
-#' @export
-lubridate::ymd
-
-#' @importFrom lubridate %within%
-#' @export
-lubridate::`%within%`
+#' @importFrom lubridate %within% ymd
+#' @importFrom pdftools pdf_text
 
 
 if(getRversion() >= "2.15.1"){
@@ -16,52 +8,18 @@ if(getRversion() >= "2.15.1"){
     utils::suppressForeignCheck(c('.'))
 }
 
+legislature <- function(df, name_var_date){
 
-legislature <- function(df, name_var_date ){
-
-        l42 <- lubridate::interval(ymd("1985-02-15"), ymd("1990-02-14"))
-        l43 <- lubridate::interval(ymd("1990-02-15"), ymd("1995-02-14"))
-        l44 <- lubridate::interval(ymd("1995-02-15"), ymd("2000-02-14"))
-        l45 <- lubridate::interval(ymd("2000-02-15"), ymd("2005-02-14"))
-        l46 <- lubridate::interval(ymd("2005-02-15"), ymd("2010-02-14"))
-        l47 <- lubridate::interval(ymd("2010-02-15"), ymd("2015-02-14"))
-        l48 <- lubridate::interval(ymd("2015-02-15"), ymd("2020-02-14"))
-        l49 <- lubridate::interval(ymd("2020-02-15"), ymd("2025-02-14"))
-        df  <- as.data.frame(df)
-        f   <- df[, names(df) == name_var_date]
-        f2  <- numeric(nrow(df))
-
-        for(i in seq_along(f)){
-                if(f[i] %within% l42){
-                    f2[i] <- 42L
-                    }
-                if(f[i] %within% l43){
-                    f2[i] <- 43L
-                    }
-                if(f[i] %within% l44){
-                    f2[i] <- 44L
-                    }
-                if(f[i] %within% l45){
-                    f2[i] <- 45L
-                    }
-                if(f[i] %within% l46){
-                    f2[i] <- 46L
-                    }
-                if(f[i] %within% l47){
-                    f2[i] <- 47L
-                    }
-                if(f[i] %within% l48){
-                    f2[i] <- 48L
-                    }
-                if(f[i] %within% l49){
-                    f2[i] <- 49L
-                    }
-        }
-        f2
+    legislaturas$interval <- lubridate::interval(legislaturas$fecha_inicio, legislaturas$fecha_fin)
+    df  <- as.data.frame(df)
+    f   <- df[, names(df) == name_var_date]
+    f2  <- numeric(nrow(df))
+    for(i in seq_along(f)){f2[i] <- which(f[i] %within% legislaturas$interval)}
+    as.integer(f2)
 }
 
-aux <- function(object){
 
+aux <- function(object){
         if(object == "esir"){
 
                 object <- paste(c("SEJ\u00d1OR",
@@ -490,7 +448,7 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 if(!is.na(fdiario)){
                         text2$legislature <- legislature(text2, name_var_date = "date")
                 }else{
-                        text2$legislature <- NA
+                        text2$legislature <- NA_integer_
                 }
                 text2$id <- ident
                 eleg <- aux("eleg")
@@ -546,9 +504,10 @@ compiler <- function(tidy_speech, compiler_by = character()){
 
     if(length(war) > 0){
         warning(paste("Variables that are in 'compiler_by' contain NA values:", paste(war, collapse = ", ")), call. = FALSE)
-        }
+    }
+    vars <- compiler_by[!compiler_by %in% war] #:-->*
 
-    tidy_speech$rec <- apply(tidy_speech[,vars], 1, paste, collapse = "__")
+    tidy_speech$rec <- apply(tidy_speech[,vars], 1, paste, collapse = "__") #:-->*
     ts_out <- tidy_speech %>% base::split(.$rec)
     cby <- tibble::tibble('varid' = names(ts_out))
     out <- ts_out %>%
@@ -557,16 +516,22 @@ compiler <- function(tidy_speech, compiler_by = character()){
         }) %>%
         dplyr::bind_rows() %>%
         dplyr::bind_cols(cby,.) %>%
-        tidyr::separate('varid', into = compiler_by , sep = "__")
+        tidyr::separate('varid', into = vars, sep = "__")##
 
-    if("legislature" %in% compiler_by){
-        out$legislature <- as.numeric(out$legislature)
+    if("legislature" %in% vars){ #:-->*
+        out$legislature <- as.integer(out$legislature)
     }
 
-    if("date" %in% compiler_by){
-        if(is.character(out$date)){out$date <- NA}
+    if("date" %in% vars){ #:-->*
+        if(is.character(tidy_speech$date)){out$date <- NA}
         out$date <- as.Date(out$date)
     }
+
+    if(length(war) > 0){ #:-->*
+        for(i in 1:length(war)){out[, war[i]] <- NA} #:-->*
+        print(names(out))
+        out <- out[, c(compiler_by, "speech")] #:-->*
+        }
 
     if("index_1" %in% names(tidy_speech)){
         out$index_1 <- unique(tidy_speech$index_1)
@@ -574,7 +539,7 @@ compiler <- function(tidy_speech, compiler_by = character()){
     }
 
     class(out) <- c(attributes(out)$class, "puy")
-    invisible(add_sex(out))
+    invisible(add_sex(clean_t(out)))
 
 }
 
@@ -631,3 +596,29 @@ add_sex <- function(data){
 }
 
 
+clean_t <- function(x){
+
+    if("legislature" %in% names(x)){
+        if(is.na(x$legislature[1])){
+            x$legislature <- NA_integer_
+        }
+    }
+    if("chamber" %in% names(x)){
+        if(is.na(x$chamber[1])){
+            x$chamber <- NA_character_
+        }
+           }
+    if("date" %in% names(x)){
+        if(is.na(x$date[1])){
+            x$date <- as.Date(x$date)
+        }
+           }
+    if("id" %in% names(x)){
+        if(is.na(x$id[1])){
+            x$id <- NA_character_
+        }
+            }
+    x$speech <- stringr::str_squish(x$speech)
+    x
+                                                                                                                                                x
+}
