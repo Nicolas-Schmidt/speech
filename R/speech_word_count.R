@@ -50,13 +50,8 @@ speech_word_count <- function(string, exclude = NULL, min.char = 0L, rm.long = I
                         tibble::enframe(x, name = NULL) %>%
                         dplyr::mutate('char' = nchar('value')) %>%
                         dplyr::filter('char' > min.char, 'char' < rm.long, !('value' %in% exclude)) %>%
-                        nrow()}) %>%
+                        nrow()})-2 %>%
         ifelse(.== 0L, NA_integer_, .)
 
 
 }
-
-
-
-
-
