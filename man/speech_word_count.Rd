@@ -6,6 +6,7 @@
 \usage{
 speech_word_count(
   string,
+  rm.name = FALSE,
   exclude = NULL,
   min.char = 0L,
   rm.long = Inf,
@@ -15,6 +16,8 @@ speech_word_count(
 }
 \arguments{
 \item{string}{character of length equal to or greater than one.}
+
+\item{rm.name}{by default is \code{FALSE}. Remove word 'SENOR' and name of legislator.}
 
 \item{exclude}{words that are to be excluded from counting.}
 
@@ -53,4 +56,11 @@ r <- "R version 3.5.2 (2018-12-20) -- 'Eggshell Igloo'"
 speech_word_count(r, rm.num = TRUE)
 
 speech_word_count(NA)
+
+\donttest{
+url <- "http://bit.ly/35AUVF4"
+out <- speech_build(file = url, compiler = TRUE)
+out$word <- speech_word_count(out$speech, rm.name = TRUE)
+out$word2 <- speech_word_count(out$speech)
+}
 }

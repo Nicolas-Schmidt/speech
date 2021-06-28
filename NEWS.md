@@ -1,14 +1,15 @@
 
 # speech 0.1.2
 
-- add variable sex
+* variable sex added in output function `speech_build()`
+* argument `rm.name` in `speech_word_count()` added
 
 # speech 0.1.1
 
-- change `dplyr::bind_rows()` for `do.call(rbind, .)`
-- change `dplyr::mutate()` for `transform()`
-- typeof legislature variable now is numeric in `speech::speech_recompiler()`
-- typeof date variable now is date
+* change `dplyr::bind_rows()` for `do.call(rbind, .)`
+* change `dplyr::mutate()` for `transform()`
+* typeof legislature variable now is numeric in `speech::speech_recompiler()`
+* typeof date variable now is date
 * The value of the `compiler_by` argument in the `speech_recompailer()` function is modified. 
 Before: `c("legislator", "legislature", "chamber", "party")`, now: `c("legislator", "legislature", "chamber", "date", "id")`
 

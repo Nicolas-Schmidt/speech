@@ -529,7 +529,6 @@ compiler <- function(tidy_speech, compiler_by = character()){
 
     if(length(war) > 0){ #:-->*
         for(i in 1:length(war)){out[, war[i]] <- NA} #:-->*
-        print(names(out))
         out <- out[, c(compiler_by, "speech")] #:-->*
         }
 

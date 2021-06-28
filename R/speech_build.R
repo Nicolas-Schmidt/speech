@@ -88,16 +88,13 @@ speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compil
         out$speech <- stringr::str_squish(out$speech)
 
         if(compiler){
-
             compiler(tidy_speech = out,
                      compiler_by = c("legislator",
                                      "legislature",
                                      "chamber",
                                      "date",
                                      "id"))
-
         } else {
-
             invisible(add_sex(clean_t(out)))
         }
 }
