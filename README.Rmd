@@ -22,7 +22,7 @@ _Nicolás Schmidt, Diego Luján, Juan Andrés Moraes_
 [![R build status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
-[![DOI](https://zenodo.org/badge/227908962.svg)](https://zenodo.org/badge/latestdoi/227908962)
+
 
 <!-- badges: end -->
 

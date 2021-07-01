@@ -14,7 +14,6 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
-[![DOI](https://zenodo.org/badge/227908962.svg)](https://zenodo.org/badge/latestdoi/227908962)
 
 <!-- badges: end -->
 
@@ -119,7 +118,7 @@ dplyr::glimpse(text)
 #> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~
 #> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné~
 #> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
-#> $ word        <dbl> 398, 44, 105, 961, 98, 101, 126, 10, 10, 109, 6
+#> $ word        <int> 400, 46, 107, 963, 100, 103, 128, 12, 12, 111, 8
 ```
 
 ### Possible application

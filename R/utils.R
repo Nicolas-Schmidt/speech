@@ -14,7 +14,10 @@ legislature <- function(df, name_var_date){
     df  <- as.data.frame(df)
     f   <- df[, names(df) == name_var_date]
     f2  <- numeric(nrow(df))
-    for(i in seq_along(f)){f2[i] <- which(f[i] %within% legislaturas$interval)}
+    for(i in 1:length(f2)){
+        w <- which(f[i] %within% legislaturas$interval)
+        f2[i] <-ifelse(is.numeric(w), w, NA)
+    }
     as.integer(f2)
 }
 
