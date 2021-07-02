@@ -7,8 +7,7 @@
 #'     certain number of characters.
 #' @param rm.long integer that determines the number of characters from which
 #'     words have to be deleted from the count.
-#' @param replace.punct logical. If \code{TRUE} punctuation marks within a single
-#'      word will be replaced by a space. By default is \code{TRUE}.
+#' @param replace.punct by default is "".
 #' @param rm.num logical. Indicates whether the numbers in the count will be
 #'     eliminated.
 #' @return integer.
