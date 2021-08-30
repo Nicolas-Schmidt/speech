@@ -31,5 +31,6 @@ Imports:
     tibble,
     tm, 
     tidyr, 
-    pdftools
+    pdftools,
+    rvest
 RoxygenNote: 7.1.1
