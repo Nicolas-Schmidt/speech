@@ -624,3 +624,18 @@ clean_t <- function(x){
     x
                                                                                                                                                 x
 }
+
+
+
+
+urlp <- function(step){
+    u <- list(
+        step1 = "https://parlamento.gub.uy/documentosyleyes/documentos/diarios-de-sesion?Cpo_Codigo_2=",
+        step2 = "&Lgl_Nro=",
+        step3 = "&DS_Fecha%5Bmin%5D%5Bdate%5D=",
+        step4 = "&DS_Fecha%5Bmax%5D%5Bdate%5D=",
+        step5 = "&Ssn_Nro=&TS_Diario=&tipoBusqueda=T&Texto=&page="
+    )
+    u[[step]]
+}
+

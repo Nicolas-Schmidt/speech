@@ -1,23 +1,43 @@
+#' @title url vectors
+#' @description Allows to create a vector of url to download within a period within a legislature.
+#' @param chamber chamber:
+#'     \describe{
+#'              \item{S}{Camara de Senadores}
+#'              \item{D}{Camara de Representantes (Diputados)}
+#'              \item{A}{Asamblea General}
+#'              \item{C}{Comision Permanente}
+#'             }
+#' @param legislature legislature number
+#' @param from character vector. Date in DD-MM-YYY format
+#' @param to character vector. Date in DD-MM-YYY format
+#' @author Elina Gomez \email{elina.gomez@cienciassociales.edu.uy}
+#' @return character vector
+#' @examples
+#' # speech_url(chamber     = "D",
+#' #            legislature = 48,
+#' #            from        = "15-02-2015",
+#' #            to          = "15-03-2015")
+#' @export
 
 
-#Cuerpo
-#S - Senadores
-#D - Diputados
-#A - Asamblea General
-#C - Comisión Permanente
-
-
-speech_url <- function(camara, legislatura, desde, hasta){
+speech_url <- function(chamber, legislature, from, to){
 
   paginas <- as.character(c(0:20))
-
-  url <- purrr::map(paginas,~ paste0("https://parlamento.gub.uy/documentosyleyes/documentos/diarios-de-sesion?Cpo_Codigo_2=",camara,"&Lgl_Nro=",legislatura,"&DS_Fecha%5Bmin%5D%5Bdate%5D=",desde,"&DS_Fecha%5Bmax%5D%5Bdate%5D=",hasta,"&Ssn_Nro=&TS_Diario=&tipoBusqueda=T&Texto=&page=", .))%>%
+  url <- purrr::map(paginas,~ paste0(urlp(1),
+                                     chamber,
+                                     urlp(2),
+                                     legislature,
+                                     urlp(3),
+                                     from,
+                                     urlp(4),
+                                     to,
+                                     urlp(5), .)) %>%
     unlist() %>%
     purrr::map(~ .x  %>%
           rvest::read_html() %>%
           rvest::html_nodes(".views-field-DS-File-IMG a") %>%
           rvest::html_attr("href") %>%
-          purrr::map(~ paste0("https://parlamento.gub.uy", .)))%>%
+          purrr::map(~ paste0("https://parlamento.gub.uy", .))) %>%
     unlist()
 
   if(is.null(url)){
@@ -27,6 +47,8 @@ speech_url <- function(camara, legislatura, desde, hasta){
   return(url)
 
 }
+
+
 
 
 ##iterar

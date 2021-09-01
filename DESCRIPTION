@@ -11,7 +11,10 @@ Authors@R: c(person(given = "Nicolas",
                     role = c("aut")),
              person(given = "Juan Andres",
                     family = "Moraes",
-                    role = c("aut"))
+                    role = c("aut")),
+            person(given = "Elina",
+                    family = "Gomez",
+                    role = c("ctb"))
                     )
 Description: Converts the floor speeches of Uruguayan legislators, extracted from the 
     parliamentary minutes, to tidy data.frame where each observation is the intervention of a single legislator.
