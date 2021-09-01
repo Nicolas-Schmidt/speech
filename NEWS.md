@@ -1,3 +1,7 @@
+# speech 0.1.3
+
+ * add `speech_url()`
+
 
 # speech 0.1.2
 

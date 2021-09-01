@@ -22,6 +22,9 @@
 
 speech_url <- function(chamber, legislature, from, to){
 
+  if(test_date(from = from, to = to, legislature = legislature)){
+    stop("The date range does not match the legislature.", call. = FALSE)
+    }
   paginas <- as.character(c(0:20))
   url <- purrr::map(paginas,~ paste0(urlp(1),
                                      chamber,
@@ -41,18 +44,13 @@ speech_url <- function(chamber, legislature, from, to){
     unlist()
 
   if(is.null(url)){
-    stop("Hay errores u omisiones en los argumentos", call. = FALSE)
+    stop("There are no sessions in that date range.", call. = FALSE)
   }
 
   return(url)
 
 }
 
-
-
-
-##iterar
-##discursos <- map(url,purrr:possibly(speech_build,otherwise = NULL))
 
 
 

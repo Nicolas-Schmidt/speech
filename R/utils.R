@@ -626,7 +626,14 @@ clean_t <- function(x){
 }
 
 
+test_date <- function(from, to, legislature){
 
+    legislaturas$interval <- lubridate::interval(legislaturas$fecha_inicio, legislaturas$fecha_fin)
+    desde <- which(lubridate::dmy(from) %within% legislaturas$interval)
+    hasta <- which(lubridate::dmy(to) %within% legislaturas$interval)
+    if(sum(desde, hasta) / 2 == legislature) FALSE else TRUE
+
+}
 
 urlp <- function(step){
     u <- list(

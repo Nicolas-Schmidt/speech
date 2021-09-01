@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • speech</title>
+<title>url vectors — speech_url • speech</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="url vectors — speech_url" />
+<meta property="og:description" content="Allows to create a vector of url to download within a period within a legislature." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +67,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -116,78 +117,60 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>url vectors</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Nicolas-Schmidt/speech/blob/master/R/speech_url.R'><code>R/speech_url.R</code></a></small>
+    <div class="hidden name"><code>speech_url.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Allows to create a vector of url to download within a period within a legislature.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>speech_url</span><span class='op'>(</span><span class='va'>chamber</span>, <span class='va'>legislature</span>, <span class='va'>from</span>, <span class='va'>to</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>chamber</th>
+      <td><p>chamber:</p><dl>
+         <dt>S</dt><dd><p>Camara de Senadores</p></dd>
+         <dt>D</dt><dd><p>Camara de Representantes (Diputados)</p></dd>
+         <dt>A</dt><dd><p>Asamblea General</p></dd>
+         <dt>C</dt><dd><p>Comision Permanente</p></dd>
         
-        <td>
-          <p><code><a href="speech_build.html">speech_build()</a></code> </p>
-        </td>
-        <td><p>Transform speeches in pdf to data.frame</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="speech_check.html">speech_check()</a></code> </p>
-        </td>
-        <td><p>Check the names of legislators</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="speech_legis_replace.html">speech_legis_replace()</a></code> </p>
-        </td>
-        <td><p>Rename legislators</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="speech_recompiler.html">speech_recompiler()</a></code> </p>
-        </td>
-        <td><p>Speech recompiler</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="speech_url.html">speech_url()</a></code> </p>
-        </td>
-        <td><p>url vectors</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="speech_view.html">speech_view()</a></code> </p>
-        </td>
-        <td><p>View control speech</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="speech_word_count.html">speech_word_count()</a></code> </p>
-        </td>
-        <td><p>Number of words</p></td>
-      </tr>
-    </tbody>
+</dl></td>
+    </tr>
+    <tr>
+      <th>legislature</th>
+      <td><p>legislature number</p></td>
+    </tr>
+    <tr>
+      <th>from</th>
+      <td><p>character vector. Date in DD-MM-YYY format</p></td>
+    </tr>
+    <tr>
+      <th>to</th>
+      <td><p>character vector. Date in DD-MM-YYY format</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>character vector</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Elina Gomez <a href='mailto:elina.gomez@cienciassociales.edu.uy'>elina.gomez@cienciassociales.edu.uy</a></p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># speech_url(chamber     = "D",</span>
+<span class='co'>#            legislature = 48,</span>
+<span class='co'>#            from        = "15-02-2015",</span>
+<span class='co'>#            to          = "15-03-2015")</span>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
