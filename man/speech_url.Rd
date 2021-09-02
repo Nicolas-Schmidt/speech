@@ -17,9 +17,9 @@ speech_url(chamber, legislature, from, to)
 
 \item{legislature}{legislature number}
 
-\item{from}{character vector. Date in DD-MM-YYY format}
+\item{from}{character vector. Date in DD-MM-YYYY format}
 
-\item{to}{character vector. Date in DD-MM-YYY format}
+\item{to}{character vector. Date in DD-MM-YYYY format}
 }
 \value{
 character vector

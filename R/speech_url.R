@@ -8,8 +8,8 @@
 #'              \item{C}{Comision Permanente}
 #'             }
 #' @param legislature legislature number
-#' @param from character vector. Date in DD-MM-YYY format
-#' @param to character vector. Date in DD-MM-YYY format
+#' @param from character vector. Date in DD-MM-YYYY format
+#' @param to character vector. Date in DD-MM-YYYY format
 #' @author Elina Gomez \email{elina.gomez@cienciassociales.edu.uy}
 #' @return character vector
 #' @examples
