@@ -1,7 +1,7 @@
 # speech 0.1.3
 
  * add `speech_url()`
-
+ * add `speech_uncompiler()`
 
 # speech 0.1.2
 

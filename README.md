@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
-[![](https://img.shields.io/badge/devel%20version-0.1.2-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
+[![](https://img.shields.io/badge/devel%20version-0.1.3-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
 [![R build
 status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
 [![Project Status: Active – The project has reached a stable, usable
@@ -171,7 +171,7 @@ citation(package = 'speech')
 #> To cite package 'speech' in publications use:
 #> 
 #>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (NA). speech:
-#>   Legislative Speeches. R package version 0.1.2.
+#>   Legislative Speeches. R package version 0.1.3.
 #>   https://github.com/Nicolas-Schmidt/speech
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -179,7 +179,7 @@ citation(package = 'speech')
 #>   @Manual{,
 #>     title = {speech: Legislative Speeches},
 #>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
-#>     note = {R package version 0.1.2},
+#>     note = {R package version 0.1.3},
 #>     url = {https://github.com/Nicolas-Schmidt/speech},
 #>   }
 ```
