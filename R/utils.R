@@ -647,11 +647,9 @@ urlp <- function(step){
 }
 
 
-
-
 fechas_legis <- function(from, to){
 
-    periodo <- lubridate::as_date(dmy(from):dmy(to))
+    periodo <- lubridate::as_date(lubridate::dmy(from):lubridate::dmy(to))
     lista <- list()
     for(i in 1:nrow(legislaturas)){
         lista[[paste(i)]] <- lubridate::as_date(ymd(legislaturas$fecha_inicio[i]):ymd(legislaturas$fecha_fin[i]))
@@ -664,7 +662,13 @@ fechas_legis <- function(from, to){
 }
 
 # example
-fechas_legis(from = "15-10-2014", to = "15-03-2015")
+# fechas_legis(from = "15-10-2014", to = "15-03-2015")
+
+
+
+
+
+
 
 
 
