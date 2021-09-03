@@ -622,7 +622,6 @@ clean_t <- function(x){
             }
     x$speech <- stringr::str_squish(x$speech)
     x
-                                                                                                                                                x
 }
 
 
@@ -679,7 +678,7 @@ fechas_legis <- function(from, to){
     periodo <- lubridate::as_date(lubridate::dmy(from):lubridate::dmy(to))
     lista <- list()
     for(i in 1:nrow(legislaturas)){
-        lista[[paste(i)]] <- lubridate::as_date(ymd(legislaturas$fecha_inicio[i]):ymd(legislaturas$fecha_fin[i]))
+        lista[[paste(i)]] <- lubridate::as_date(lubridate::ymd(legislaturas$fecha_inicio[i]):lubridate::ymd(legislaturas$fecha_fin[i]))
     }
     dat <- data.frame(
         legis  = rep(1:nrow(legislaturas), lengths(lista)),
