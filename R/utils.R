@@ -687,3 +687,48 @@ fechas_legis <- function(from, to){
     dat[which(dat$fechas %in% periodo),] %>% split(., f = .$legis) %>% lapply(., function(x) range(x$fechas))
 }
 
+
+uncompiler <- function(data){
+
+    dat <- data
+    comp    <- split(dat, dat$id)
+    diarios <- length(comp)
+    unc <- list()
+    for(i in 1:diarios){
+        ud <- comp[[i]]
+        l <- strsplit(ud$speech, "(SE\u00d1OR|SE\u00d1ORA)")
+        largo <- lengths(l)
+        out <- tibble::tibble(
+            legislator  = rep(ud$legislator, largo),
+            legislature = unique(ud$legislature)[1],
+            chamber     = unique(ud$chamber)[1],
+            date        = unique(ud$date)[1],
+            id          = unique(ud$id)[1],
+            speech      = unlist(l),
+            sex         = rep(ud$sex, largo)
+        )
+        out <- out[nchar(out$speech) >= 2,]
+        unc[[i]] <- out
+        return(unc)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
