@@ -4,7 +4,7 @@
 \alias{speech_url}
 \title{url vectors}
 \usage{
-speech_url(chamber, legislature, from, to)
+speech_url(chamber, from, to)
 }
 \arguments{
 \item{chamber}{chamber:
@@ -14,8 +14,6 @@ speech_url(chamber, legislature, from, to)
          \item{A}{Asamblea General}
          \item{C}{Comision Permanente}
         }}
-
-\item{legislature}{legislature number}
 
 \item{from}{character vector. Date in DD-MM-YYYY format}
 
@@ -29,7 +27,6 @@ Allows to create a vector of url to download within a period within a legislatur
 }
 \examples{
 # speech_url(chamber     = "D",
-#            legislature = 48,
 #            from        = "15-02-2015",
 #            to          = "15-03-2015")
 }

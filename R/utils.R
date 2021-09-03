@@ -647,6 +647,33 @@ urlp <- function(step){
 }
 
 
+proto_url <- function(chamber, legislature, from, to){
+
+    paginas <- as.character(c(0:20))
+    url <- purrr::map(paginas,~ paste0(urlp(1),
+                                       chamber,
+                                       urlp(2),
+                                       legislature,
+                                       urlp(3),
+                                       from,
+                                       urlp(4),
+                                       to,
+                                       urlp(5), .)) %>%
+        unlist() %>%
+        purrr::map(~ .x  %>%
+                       rvest::read_html() %>%
+                       rvest::html_nodes(".views-field-DS-File-IMG a") %>%
+                       rvest::html_attr("href") %>%
+                       purrr::map(~ paste0("https://parlamento.gub.uy", .))) %>%
+        unlist()
+    url
+}
+
+
+parseo <- function(x){
+    paste(substring(x, 9, 10), substring(x, 6, 7), substring(x, 1, 4), sep = "-")
+}
+
 fechas_legis <- function(from, to){
 
     periodo <- lubridate::as_date(lubridate::dmy(from):lubridate::dmy(to))
@@ -660,26 +687,4 @@ fechas_legis <- function(from, to){
     )
     dat[which(dat$fechas %in% periodo),] %>% split(., f = .$legis) %>% lapply(., function(x) range(x$fechas))
 }
-
-# example
-# fechas_legis(from = "15-10-2014", to = "15-03-2015")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
