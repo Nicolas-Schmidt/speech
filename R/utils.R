@@ -646,3 +646,36 @@ urlp <- function(step){
     u[[step]]
 }
 
+
+
+
+fechas_legis <- function(from, to){
+
+    periodo <- lubridate::as_date(dmy(from):dmy(to))
+    lista <- list()
+    for(i in 1:nrow(legislaturas)){
+        lista[[paste(i)]] <- lubridate::as_date(ymd(legislaturas$fecha_inicio[i]):ymd(legislaturas$fecha_fin[i]))
+    }
+    dat <- data.frame(
+        legis  = rep(1:nrow(legislaturas), lengths(lista)),
+        fechas = lubridate::as_date(unlist(lista))
+    )
+    dat[which(dat$fechas %in% periodo),] %>% split(., f = .$legis) %>% lapply(., function(x) range(x$fechas))
+}
+
+# example
+fechas_legis(from = "15-10-2014", to = "15-03-2015")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
