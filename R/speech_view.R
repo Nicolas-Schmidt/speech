@@ -16,19 +16,13 @@
 speech_view <- function(tidy_speech, legis = character(), view = FALSE){
 
     if(!inherits(tidy_speech, "puy")){
-
         stop("Input is not of class 'puy'.", call. = FALSE)
 
     }
-
     error_legis <- tidy_speech[tidy_speech$legislator %in% legis,]
-
     if(view){
-
         utils::View(error_legis)
-
     } else {
-
             print(error_legis, n = Inf)}
 
 }

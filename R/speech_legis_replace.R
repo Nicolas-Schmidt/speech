@@ -19,21 +19,13 @@
 speech_legis_replace <- function(tidy_speech, old, new, id = NULL){
 
     if(!inherits(tidy_speech, "puy")){
-
         stop("Input is not of class 'puy'.", call. = FALSE)
-
     }
-
     if(!is.null(id)){
-
         tidy_speech[tidy_speech$legislator == old & tidy_speech$id == id, "legislator"] <- new
-
     } else {
-
         tidy_speech[tidy_speech$legislator == old, "legislator"] <- new
-
     }
-
     return(tidy_speech)
 }
 
