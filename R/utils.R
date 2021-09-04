@@ -546,7 +546,6 @@ compiler <- function(tidy_speech, compiler_by = character()){
 }
 
 chamber_fit <- function(chamber){
-
         problem <- aux("chamb")[5:8]
         correct <- aux("chamb")[1:4]
         ubic <- which(problem %in% chamber)
@@ -557,7 +556,6 @@ chamber_fit <- function(chamber){
 }
 
 header <- function(file){
-
     fdoc <- tm::readPDF("pdftools")
     fdoc <- fdoc(elem = list(uri = file), language = "spanish")$content
     fdoc <- fdoc %>%
@@ -574,7 +572,6 @@ header <- function(file){
 }
 
 separate_sir <- function(vec){
-
     detect <- unlist(stringr::str_extract_all(string = vec, pattern = "[[:alnum:][:punct:]]{1,}SE\u00d1OR"))
     if(length(detect) > 0){
         vec_corte <- regexpr("[[:alnum:][:punct:]]SE\u00d1OR", detect)
@@ -599,7 +596,6 @@ add_sex <- function(data){
 
 
 clean_t <- function(x){
-
     if("legislature" %in% names(x)){
         if(is.na(x$legislature[1])){
             x$legislature <- NA_integer_
@@ -626,7 +622,6 @@ clean_t <- function(x){
 
 
 test_date <- function(from, to, legislature){
-
     legislaturas$interval <- lubridate::interval(legislaturas$fecha_inicio, legislaturas$fecha_fin)
     desde <- which(lubridate::dmy(from) %within% legislaturas$interval)
     hasta <- which(lubridate::dmy(to) %within% legislaturas$interval)
@@ -647,7 +642,6 @@ urlp <- function(step){
 
 
 proto_url <- function(chamber, legislature, from, to){
-
     paginas <- as.character(c(0:20))
     url <- purrr::map(paginas,~ paste0(urlp(1),
                                        chamber,
@@ -674,7 +668,6 @@ parseo <- function(x){
 }
 
 fechas_legis <- function(from, to){
-
     periodo <- lubridate::as_date(lubridate::dmy(from):lubridate::dmy(to))
     lista <- list()
     for(i in 1:nrow(legislaturas)){
@@ -689,9 +682,8 @@ fechas_legis <- function(from, to){
 
 
 uncompiler <- function(data){
-
     dat <- data
-    comp    <- split(dat, dat$id)
+    comp    <- base::split(dat, dat$id)
     diarios <- length(comp)
     unc <- list()
     for(i in 1:diarios){
