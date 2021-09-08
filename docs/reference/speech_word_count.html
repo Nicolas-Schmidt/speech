@@ -197,11 +197,11 @@ eliminated.</p></td>
 <span class='fu'>speech_word_count</span><span class='op'>(</span><span class='cn'>NA</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] NA</div><div class='input'>
 <span class='co'># \donttest{</span>
-<span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"http://bit.ly/35AUVF4"</span>
-<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='speech_build.html'>speech_build</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='va'>url</span>, compiler <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: Input must be a vector, not a &lt;tbl_df/tbl/data.frame/puy&gt; object.</span></div><div class='input'><span class='va'>out</span><span class='op'>$</span><span class='va'>word</span> <span class='op'>&lt;-</span> <span class='fu'>speech_word_count</span><span class='op'>(</span><span class='va'>out</span><span class='op'>$</span><span class='va'>speech</span>, rm.name <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in speech_word_count(out$speech, rm.name = TRUE): unused argument (rm.name = TRUE)</span></div><div class='input'><span class='va'>out</span><span class='op'>$</span><span class='va'>word2</span> <span class='op'>&lt;-</span> <span class='fu'>speech_word_count</span><span class='op'>(</span><span class='va'>out</span><span class='op'>$</span><span class='va'>speech</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in speech_word_count(out$speech): objeto 'out' no encontrado</span></div><div class='input'><span class='co'># }</span>
+<span class='co'># url &lt;- "http://bit.ly/35AUVF4"</span>
+<span class='co'># out &lt;- speech_build(file = url, compiler = TRUE)</span>
+<span class='co'># out$word &lt;- speech_word_count(out$speech, rm.name = TRUE)</span>
+<span class='co'># out$word2 &lt;- speech_word_count(out$speech)</span>
+<span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

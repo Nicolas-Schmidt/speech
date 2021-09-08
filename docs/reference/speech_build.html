@@ -216,15 +216,15 @@ non evaluate" respectively. The default values are the median characters of
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"http://bit.ly/35AUVF4"</span>
-<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>speech_build</span><span class='op'>(</span>file <span class='op'>=</span> <span class='va'>url</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: Input must be a vector, not a &lt;tbl_df/tbl/data.frame/puy&gt; object.</span></div><div class='input'>
-<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>speech_build</span><span class='op'>(</span>file <span class='op'>=</span> <span class='va'>url</span>, compiler <span class='op'>=</span> <span class='cn'>FALSE</span>,
-                     quality <span class='op'>=</span> <span class='cn'>TRUE</span>,
-                     add.error.sir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SEf'IOR"</span><span class='op'>)</span>,
-                     rm.error.leg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"PRtSIDENTE"</span>, <span class='st'>"SUB"</span>, <span class='st'>"PRfSlENTE"</span><span class='op'>)</span>,
-                     param <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>char <span class='op'>=</span> <span class='fl'>6000</span>, drop.page <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: Input must be a vector, not a &lt;tbl_df/tbl/data.frame/puy&gt; object.</span></div><div class='input'>
+<span class='co'># url &lt;- speech::speech_url(chamber = "C", from = "17-09-2019", to = "17-09-2019")</span>
+<span class='co'># out &lt;- speech_build(file = url)</span>
+
+<span class='co'># out &lt;- speech_build(file = url, compiler = FALSE,</span>
+<span class='co'>#                     quality = TRUE,</span>
+<span class='co'>#                     add.error.sir = c("SEf'IOR"),</span>
+<span class='co'>#                     rm.error.leg = c("PRtSIDENTE", "SUB", "PRfSlENTE"),</span>
+<span class='co'>#                     param = list(char = 6000, drop.page = 3))</span>
+
 <span class='co'># out &lt;- list.files(pattern = "*.pdf") %&gt;% speech_build()</span>
 
 <span class='co'># out &lt;- list.files(pattern = "*.pdf") %&gt;%</span>

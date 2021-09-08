@@ -157,11 +157,11 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"http://bit.ly/35AUVF4"</span>
-<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='speech_build.html'>speech_build</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='va'>url</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: Input must be a vector, not a &lt;tbl_df/tbl/data.frame/puy&gt; object.</span></div><div class='input'><span class='fu'><a href='speech_check.html'>speech_check</a></span><span class='op'>(</span><span class='va'>out</span>, <span class='st'>"G"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in speech_check(out, "G"): objeto 'out' no encontrado</span></div><div class='input'><span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>speech_legis_replace</span><span class='op'>(</span><span class='va'>out</span>, old <span class='op'>=</span> <span class='st'>"GOI"</span>,  new <span class='op'>=</span> <span class='st'>"GONI"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in speech_legis_replace(out, old = "GOI", new = "GONI"): objeto 'out' no encontrado</span></div><div class='input'><span class='co'># }</span>
+<span class='co'># url &lt;- "http://bit.ly/35AUVF4"</span>
+<span class='co'># out &lt;- speech_build(file = url)</span>
+<span class='co'># speech_check(out, "G")</span>
+<span class='co'># out &lt;- speech_legis_replace(out, old = "GOI",  new = "GONI")</span>
+<span class='co'># }</span>
 
 </div></pre>
   </div>
