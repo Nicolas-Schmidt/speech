@@ -20,7 +20,6 @@ Description: Converts the floor speeches of Uruguayan legislators, extracted fro
     parliamentary minutes, to tidy data.frame where each observation is the intervention of a single legislator.
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
 Depends:
     R (>= 3.6.0)
 URL: https://github.com/Nicolas-Schmidt/speech
