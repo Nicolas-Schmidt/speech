@@ -23,10 +23,10 @@ allows to modify the legislators' name prior to compiling the data.
 }
 \examples{
 \donttest{
-url <- "http://bit.ly/35AUVF4"
-out <- speech_build(file = url)
-speech_check(out, "G")
-out <- speech_legis_replace(out, old = "GOI",  new = "GONI")
+# url <- "http://bit.ly/35AUVF4"
+# out <- speech_build(file = url)
+# speech_check(out, "G")
+# out <- speech_legis_replace(out, old = "GOI",  new = "GONI")
 }
 
 }

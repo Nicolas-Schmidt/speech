@@ -4,9 +4,9 @@
 #' @return data.frame.
 #' @examples
 #' \donttest{
-#' url <- "http://bit.ly/35AUVF4"
-#' out <- speech_build(file = url, compiler = TRUE)
-#' out2 <- speech_uncompiler(out)
+#' # url <- "http://bit.ly/35AUVF4"
+#' # out <- speech_build(file = url, compiler = TRUE)
+#' # out2 <- speech_uncompiler(out)
 #' }
 #' @export
 

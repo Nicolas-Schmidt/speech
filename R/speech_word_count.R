@@ -30,10 +30,10 @@
 #' speech_word_count(NA)
 #'
 #' \donttest{
-#' url <- "http://bit.ly/35AUVF4"
-#' out <- speech_build(file = url, compiler = TRUE)
-#' out$word <- speech_word_count(out$speech, rm.name = TRUE)
-#' out$word2 <- speech_word_count(out$speech)
+#' # url <- "http://bit.ly/35AUVF4"
+#' # out <- speech_build(file = url, compiler = TRUE)
+#' # out$word <- speech_word_count(out$speech, rm.name = TRUE)
+#' # out$word2 <- speech_word_count(out$speech)
 #' }
 #' @export
 

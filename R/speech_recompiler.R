@@ -9,10 +9,10 @@
 #'     chamber, legislature or other variables.
 #' @examples
 #' \donttest{
-#' url <- "http://bit.ly/35AUVF4"
-#' out <- speech_build(file = url)
-#' out2 <- speech_recompiler(out)
-#' out2 <- speech_recompiler(out, compiler_by = c("legislator", "legislature", "chamber"))
+#' # url <- "http://bit.ly/35AUVF4"
+#' # out <- speech_build(file = url)
+#' # out2 <- speech_recompiler(out)
+#' # out2 <- speech_recompiler(out, compiler_by = c("legislator", "legislature", "chamber"))
 #' }
 #' @export
 

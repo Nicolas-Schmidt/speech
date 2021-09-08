@@ -9,9 +9,9 @@
 #' @return list with a data.frame for each initial of legislators' names.
 #' @examples
 #' \donttest{
-#' url <- "http://bit.ly/35AUVF4"
-#' out <- speech_build(file = url)
-#' speech_check(out, initial = c("A", "M"), expand = FALSE)
+#' # url <- "http://bit.ly/35AUVF4"
+#' # out <- speech_build(file = url)
+#' # speech_check(out, initial = c("A", "M"), expand = FALSE)
 #' }
 #' @export
 

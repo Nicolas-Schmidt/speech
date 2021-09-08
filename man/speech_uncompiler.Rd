@@ -17,8 +17,8 @@ It allows to undo the compilation of a floor speech.
 }
 \examples{
 \donttest{
-url <- "http://bit.ly/35AUVF4"
-out <- speech_build(file = url, compiler = TRUE)
-out2 <- speech_uncompiler(out)
+# url <- "http://bit.ly/35AUVF4"
+# out <- speech_build(file = url, compiler = TRUE)
+# out2 <- speech_uncompiler(out)
 }
 }

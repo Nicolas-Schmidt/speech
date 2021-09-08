@@ -24,8 +24,8 @@ It allows to check that the names of the legislators are
 }
 \examples{
 \donttest{
-url <- "http://bit.ly/35AUVF4"
-out <- speech_build(file = url)
-speech_check(out, initial = c("A", "M"), expand = FALSE)
+# url <- "http://bit.ly/35AUVF4"
+# out <- speech_build(file = url)
+# speech_check(out, initial = c("A", "M"), expand = FALSE)
 }
 }
