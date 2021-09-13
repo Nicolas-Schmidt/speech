@@ -54,6 +54,9 @@ remotes::install_github("Nicolas-Schmidt/speech")
 
 ### Example
 
+You can see more complex examples in the following
+[link](https://github.com/Nicolas-Schmidt/speech-ejemplos).
+
 ``` r
 library(speech)
 url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diario-de-sesion/comisionpermanente/6084/IMG/0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollow"
@@ -91,19 +94,19 @@ speech_check(text, initial = c("A", "M"))
 text <- speech::speech_build(file = url, compiler = TRUE)
 text
 #> # A tibble: 11 x 7
-#>    legislator legislature chamber   date       id           speech           sex
-#>    <chr>            <int> <chr>     <date>     <chr>        <chr>          <dbl>
-#>  1 ABDALA              48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ABDALA.~     1
-#>  2 ASTI                48 COMISION~ 2019-09-17 0?width=800~ SEÑOR ASTI. O~     1
-#>  3 AVIAGA              48 COMISION~ 2019-09-17 0?width=800~ SEÑORA AVIAGA~     0
-#>  4 BORDABERRY          48 COMISION~ 2019-09-17 0?width=800~ SEÑOR BORDABE~     1
-#>  5 GOÑI                48 COMISION~ 2019-09-17 0?width=800~ SEÑOR GOÑI. P~     1
-#>  6 LAZO                48 COMISION~ 2019-09-17 0?width=800~ SEÑORA LAZO. ~     0
-#>  7 MAHIA               48 COMISION~ 2019-09-17 0?width=800~ SEÑOR MAHIA. ~     1
-#>  8 MERONI              48 COMISION~ 2019-09-17 0?width=800~ SEÑOR MERONI.~     1
-#>  9 PEREYRA             48 COMISION~ 2019-09-17 0?width=800~ SEÑORA PEREYR~     0
-#> 10 TOURNE              48 COMISION~ 2019-09-17 0?width=800~ SEÑORA TOURNE~     0
-#> 11 VIERA               48 COMISION~ 2019-09-17 0?width=800~ SEÑOR VIERA. ~     1
+#>    legislator legislature chamber             date       id       speech     sex
+#>    <chr>            <int> <chr>               <date>     <chr>    <chr>    <dbl>
+#>  1 ABDALA              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR A~     1
+#>  2 ASTI                48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR A~     1
+#>  3 AVIAGA              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
+#>  4 BORDABERRY          48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR B~     1
+#>  5 GOÑI                48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR G~     1
+#>  6 LAZO                48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
+#>  7 MAHIA               48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR M~     1
+#>  8 MERONI              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR M~     1
+#>  9 PEREYRA             48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
+#> 10 TOURNE              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
+#> 11 VIERA               48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR V~     1
 
 
 text$word <- speech_word_count(text$speech)
@@ -118,7 +121,7 @@ dplyr::glimpse(text)
 #> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~
 #> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné~
 #> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
-#> $ word        <int> 400, 46, 107, 963, 100, 103, 128, 12, 12, 111, 8
+#> $ word        <int> 408, 54, 107, 979, 100, 103, 128, 12, 12, 111, 8
 ```
 
 ### Possible application

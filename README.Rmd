@@ -67,6 +67,9 @@ remotes::install_github("Nicolas-Schmidt/speech")
 
 ### Example
 
+You can see more complex examples in the following [link](https://github.com/Nicolas-Schmidt/speech-ejemplos).
+
+
 ```{r example}
 library(speech)
 url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diario-de-sesion/comisionpermanente/6084/IMG/0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollow"
