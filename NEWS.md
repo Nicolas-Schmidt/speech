@@ -1,3 +1,8 @@
+# speech 0.1.4
+
+* {tabulizer} functions are replaced by {tm} functions.
+
+
 # speech 0.1.3
 
  * add `speech_url()`

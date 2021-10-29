@@ -21,7 +21,6 @@ legislature <- function(df, name_var_date){
     as.integer(f2)
 }
 
-
 aux <- function(object){
         if(object == "esir"){
 
@@ -370,23 +369,10 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
         if(!is.null(add.error.sir)){
                 esir <- paste0(esir, "|", paste0(add.error.sir, collapse = "|"), collapse = "")
         }
+        text0 <- pdfSIR(file)
+        text  <- preComp(text0[["text"]], esir = esir)
+        text1 <- text0[[1]]
 
-        tabulizer::stop_logging()
-        suppressWarnings(
-                text <- tabulizer::extract_text(file = file, page = NULL, encoding = "UTF-8") %>%
-                        stringr::str_replace_all(pattern = "\\r\\n|\\r\\t|\\t", replacement = " ") %>%
-                        stringr::str_replace_all(pattern = "  ", replacement = " ") %>%
-                        stringr::str_replace_all(pattern = "- ", replacement = "") %>%
-                        stringr::str_replace_all(pattern = esir, replacement = "SE\u00d1OR") %>%
-                        stringr::str_replace_all(pattern = ":rlr|&|:&|!it|:\u00a1q'|iQ'", replacement = "\u00d1") %>%
-                        stringr::str_replace_all(pattern = "-|--|<|>", replacement = "") %>%
-                        separate_sir() %>%
-                        strsplit(split = " ") %>%
-                        unlist() %>%
-                        chartr('\u00c1\u00c9\u00cd\u00d3\u00da','AEIOU',.) %>%
-                        stringr::str_squish()
-        )
-        #
         clave <- stringr::str_which(text, "^SE\u00d1OR")
         clave <- clave[clave > 300]
         ident <- sub("([^.]+)\\.[[:alnum:]]+$", "\\1", basename(file))
@@ -420,10 +406,10 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
 
                 ## date --------------------------------------------------------
                 meses <- aux("meses")
-                fe <- stringr::str_which(toupper(text[1:150]), pattern = meses)
+                fe <- stringr::str_which(toupper(text1), pattern = meses)
                 if(length(fe) != 0){
                         suppressWarnings(
-                                fdiario <- c(text[fe[1]-2], text[fe[1]], substring(text[fe[1]+2], 1, 4)) %>%
+                                fdiario <- c(text1[fe[1]-2], text1[fe[1]], substring(text1[fe[1]+2], 1, 4)) %>%
                                         paste(., collapse = " ") %>%
                                         stringr::str_squish()%>%
                                         lubridate::parse_date_time(order = "dmy")
@@ -435,7 +421,7 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 ## chamber -----------------------------------------------------
 
                 chamb <- aux("chamb")
-                cha <- text[1:50] %>% chartr('\u00c1\u00c9\u00cd\u00d3\u00da','AEIOU',.) %>% paste(collapse = " ") %>%
+                cha <- text1 %>% chartr('\u00c1\u00c9\u00cd\u00d3\u00da','AEIOU',.) %>% paste(collapse = " ") %>%
                         gsub(pattern = "  ", replacement = " ", .)
 
                 cha <- chamb[stringr::str_which(cha, chamb)[1]] %>% chamber_fit()
@@ -705,8 +691,58 @@ uncompiler <- function(data){
     }
 }
 
+pdfSIR <- function(file){
+    fdoc <- tm::readPDF("pdftools")
+    fdoc <- fdoc(elem = list(uri = file), language = "spanish")$content
+    a    <- strsplit(fdoc, "\n")
+    text <- lapply(a, "[", -1)
+    text <- text[lengths(text) > 0L]
+    list(
+        date_cham = unlist(strsplit(a[[1]], " " )),
+        text      = text
+    )
+}
 
+extract_page <- function(text, umbral = ceiling(max(nchar(text))/2)){
+    nch  <- nchar(text)
+    vec1 <- character()
+    vec2 <- character()
+    for(i in 1:length(text)){
+        if(nch[i] > umbral){
+            vec1[i] <- substring(text[i], 1, umbral)
+            vec2[i] <- substring(text[i], umbral+1, nch[i])
 
+        } else{
+            vec1[i] <- text[i]
+            vec2[i] <- "   "
+        }
+    }
+    vec3 <- c(vec1, vec2)
+    vec3 <- stringr::str_replace_all(vec3, pattern = "\\s{2,}", " ") %>% stringr::str_squish()
+    vec3 <- paste(vec3[nchar(vec3) > 0L], collapse = " ")
+    vec3 <- stringr::str_replace_all(vec3, "- ", "")
+    vec3 <- stringr::str_replace_all(vec3, "-", "")
+    return(vec3)
+}
+
+preComp <- function(text, esir){
+    out <- unlist(lapply(X = text, FUN = extract_page))
+    # out <- stringr::str_replace_all(out, pattern = "[[:punct:]]", replacement = "")
+    out <- out %>%
+        stringr::str_replace_all(pattern = "\\r\\n|\\r\\t|\\t", replacement = " ") %>%
+        stringr::str_replace_all(pattern = "  ", replacement = " ") %>%
+        stringr::str_replace_all(pattern = "- ", replacement = "") %>%
+        stringr::str_replace_all(pattern = esir, replacement = "SE\u00d1OR") %>%
+        stringr::str_replace_all(pattern = ":rlr|&|:&|!it|:\u00a1q'|iQ'", replacement = "\u00d1") %>%
+        stringr::str_replace_all(pattern = "-|--|<|>", replacement = "") %>%
+        separate_sir() %>%
+        strsplit(split = " ") %>%
+        unlist() %>%
+        chartr('\u00c1\u00c9\u00cd\u00d3\u00da','AEIOU',.) %>%
+        stringr::str_squish() %>%
+        .[nchar(.) >= 1L]
+    out
+}
 
 
 

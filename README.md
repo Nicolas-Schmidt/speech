@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
-[![](https://img.shields.io/badge/devel%20version-0.1.3-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
+[![](https://img.shields.io/badge/devel%20version-0.1.4-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
 [![R build
 status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
 [![Project Status: Active – The project has reached a stable, usable
@@ -121,7 +121,7 @@ dplyr::glimpse(text)
 #> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~
 #> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné~
 #> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
-#> $ word        <int> 408, 54, 107, 979, 100, 103, 128, 12, 12, 111, 8
+#> $ word        <int> 400, 46, 107, 956, 100, 103, 128, 12, 12, 111, 8
 ```
 
 ### Possible application
@@ -174,7 +174,7 @@ citation(package = 'speech')
 #> To cite package 'speech' in publications use:
 #> 
 #>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (NA). speech:
-#>   Legislative Speeches. R package version 0.1.3.
+#>   Legislative Speeches. R package version 0.1.4.
 #>   https://github.com/Nicolas-Schmidt/speech
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -182,7 +182,7 @@ citation(package = 'speech')
 #>   @Manual{,
 #>     title = {speech: Legislative Speeches},
 #>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
-#>     note = {R package version 0.1.3},
+#>     note = {R package version 0.1.4},
 #>     url = {https://github.com/Nicolas-Schmidt/speech},
 #>   }
 ```
