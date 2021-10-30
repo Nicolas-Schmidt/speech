@@ -711,7 +711,6 @@ extract_page <- function(text, umbral = ceiling(max(nchar(text))/2)){
         if(nch[i] > umbral){
             vec1[i] <- substring(text[i], 1, umbral)
             vec2[i] <- substring(text[i], umbral+1, nch[i])
-
         } else{
             vec1[i] <- text[i]
             vec2[i] <- "   "
