@@ -173,17 +173,18 @@ citation(package = 'speech')
 #> 
 #> To cite package 'speech' in publications use:
 #> 
-#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (NA). speech:
+#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (2021). speech:
 #>   Legislative Speeches. R package version 0.1.4.
-#>   https://github.com/Nicolas-Schmidt/speech
+#>   https://CRAN.R-project.org/package=speech
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {speech: Legislative Speeches},
 #>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
+#>     year = {2021},
 #>     note = {R package version 0.1.4},
-#>     url = {https://github.com/Nicolas-Schmidt/speech},
+#>     url = {https://CRAN.R-project.org/package=speech},
 #>   }
 ```
 
