@@ -870,6 +870,7 @@ speech_pow_rc <- function(textorc){
 
     votaciones <- list()
     for(i in 1:length(nd)){
+
         votaciones[[i]] <- texto[nd[i]:nf[i],]
         votaciones[[i]]$rollcall <- i
         votaciones[[i]]$vote1 <- NA
