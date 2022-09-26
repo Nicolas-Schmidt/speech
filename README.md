@@ -121,7 +121,7 @@ dplyr::glimpse(text)
 #> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~
 #> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné~
 #> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
-#> $ word        <int> 403, 47, 110, 962, 103, 104, 131, 13, 13, 112, 9
+#> $ word        <int> 398, 46, 105, 951, 98, 103, 126, 12, 12, 111, 8
 ```
 
 ### Possible application

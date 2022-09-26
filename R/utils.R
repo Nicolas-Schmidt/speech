@@ -568,7 +568,12 @@ compiler <- function(tidy_speech, compiler_by = character()){
     }
 
     class(out) <- c(attributes(out)$class, "puy")
-    invisible(add_sex(clean_t(out)))
+
+    invisible(
+              SError(
+                      add_sex(
+                              clean_t(
+                                      out))))
 
 }
 
