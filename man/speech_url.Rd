@@ -4,7 +4,7 @@
 \alias{speech_url}
 \title{url vectors}
 \usage{
-speech_url(chamber, from, to)
+speech_url(chamber, from, to, days = NULL)
 }
 \arguments{
 \item{chamber}{chamber:
@@ -18,6 +18,8 @@ speech_url(chamber, from, to)
 \item{from}{character vector. Date in DD-MM-YYYY format}
 
 \item{to}{character vector. Date in DD-MM-YYYY format}
+
+\item{days}{character vector. Date in DD-MM-YYYY format.}
 }
 \value{
 character vector
@@ -26,10 +28,19 @@ character vector
 Allows to create a vector of url to download within a period within a legislature.
 }
 \examples{
-# speech_url(chamber     = "D",
-#            from        = "15-02-2015",
-#            to          = "15-03-2015")
-}
-\author{
-Elina Gomez \email{elina.gomez@cienciassociales.edu.uy}
+# speech_url(chamber = "D",
+#            from    = "15-02-2015",
+#            to      = "15-03-2015")
+#
+# speech_url(chamber = "D",
+#            from    = "15-02-2015",
+#            to      = "15-02-2015")
+#
+# speech_url(chamber = "D",
+#            days   = "15-02-2015")
+#
+# speech_url(chamber = "D",
+#            days    = c("12-06-2002", "14-04-2004"))
+#
+
 }

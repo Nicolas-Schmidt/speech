@@ -67,7 +67,7 @@ remotes::install_github("Nicolas-Schmidt/speech")
 
 ### Example
 
-You can see more complex examples in the following [link](https://github.com/Nicolas-Schmidt/speech-ejemplos).
+You can see more complex examples in the following [**link**](https://github.com/Nicolas-Schmidt/speech-ejemplos).
 
 
 ```{r example}
@@ -126,6 +126,18 @@ text$speech %>%
         coord_flip() +
         theme_minimal()
 ```
+
+### Detecting roll-call votes in parliamentary speeches
+
+```{r}
+urls <- speech_url(chamber = "D", days = c("12-06-2002", "14-04-2004"))
+rollcall <- speech_rollcall(file =  urls)
+
+rollcall
+
+summary(rollcall)
+```
+
 
 #### Citation
 

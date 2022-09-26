@@ -1,3 +1,9 @@
+# speech 0.1.5
+
+* A function is added (`speech_rollcall()`) to detect roll-call votes from parliamentary speeches.
+* The argument `days` is added to the function `speech_url()`
+
+
 # speech 0.1.4
 
 * {tabulizer} functions are replaced by {tm} functions.

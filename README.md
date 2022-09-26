@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
-[![](https://img.shields.io/badge/devel%20version-0.1.4-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version-ago/speech)](https://cran.r-project.org/package=speech)
+[![](https://img.shields.io/badge/devel%20version-0.1.5-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
 [![R build
 status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
 [![Project Status: Active – The project has reached a stable, usable
@@ -55,7 +55,7 @@ remotes::install_github("Nicolas-Schmidt/speech")
 ### Example
 
 You can see more complex examples in the following
-[link](https://github.com/Nicolas-Schmidt/speech-ejemplos).
+[**link**](https://github.com/Nicolas-Schmidt/speech-ejemplos).
 
 ``` r
 library(speech)
@@ -63,18 +63,18 @@ url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diario-de-sesion/c
 text <- speech::speech_build(file = url)
 text
 #> # A tibble: 24 x 7
-#>    legislator speech          chamber   date       legislature id            sex
-#>    <chr>      <chr>           <chr>     <date>           <int> <chr>       <dbl>
-#>  1 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  2 BORDABERRY SEÑOR BORDABER~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  3 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
-#>  4 AVIAGA     SEÑORA AVIAGA.~ COMISION~ 2019-09-17          48 0?width=80~     0
-#>  5 GOÑI       SEÑOR GOÑI. Pi~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  6 GOÑI       SEÑOR GOÑI. El~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  7 MAHIA      SEÑOR MAHIA. P~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  8 MAHIA      SEÑOR MAHIA. G~ COMISION~ 2019-09-17          48 0?width=80~     1
-#>  9 ABDALA     SEÑOR ABDALA. ~ COMISION~ 2019-09-17          48 0?width=80~     1
-#> 10 ASTI       SEÑOR ASTI. Ob~ COMISION~ 2019-09-17          48 0?width=80~     1
+#>    legislator speech                  chamber date       legislature id      sex
+#>    <chr>      <chr>                   <chr>   <date>           <int> <chr> <dbl>
+#>  1 BORDABERRY SEÑOR BORDABERRY. Pido~ COMISI~ 2019-09-17          48 0?wi~     1
+#>  2 BORDABERRY SEÑOR BORDABERRY. Prop~ COMISI~ 2019-09-17          48 0?wi~     1
+#>  3 AVIAGA     SEÑORA AVIAGA. Pido la~ COMISI~ 2019-09-17          48 0?wi~     0
+#>  4 AVIAGA     SEÑORA AVIAGA. En el m~ COMISI~ 2019-09-17          48 0?wi~     0
+#>  5 GOÑI       SEÑOR GOÑI. Pido la pa~ COMISI~ 2019-09-17          48 0?wi~     1
+#>  6 GOÑI       SEÑOR GOÑI. El Frente ~ COMISI~ 2019-09-17          48 0?wi~     1
+#>  7 MAHIA      SEÑOR MAHIA. Pido la p~ COMISI~ 2019-09-17          48 0?wi~     1
+#>  8 MAHIA      SEÑOR MAHIA. Gracias, ~ COMISI~ 2019-09-17          48 0?wi~     1
+#>  9 ABDALA     SEÑOR ABDALA. Voto por~ COMISI~ 2019-09-17          48 0?wi~     1
+#> 10 ASTI       SEÑOR ASTI. Obviamente~ COMISI~ 2019-09-17          48 0?wi~     1
 #> # ... with 14 more rows
 
 
@@ -94,19 +94,19 @@ speech_check(text, initial = c("A", "M"))
 text <- speech::speech_build(file = url, compiler = TRUE)
 text
 #> # A tibble: 11 x 7
-#>    legislator legislature chamber             date       id       speech     sex
-#>    <chr>            <int> <chr>               <date>     <chr>    <chr>    <dbl>
-#>  1 ABDALA              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR A~     1
-#>  2 ASTI                48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR A~     1
-#>  3 AVIAGA              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
-#>  4 BORDABERRY          48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR B~     1
-#>  5 GOÑI                48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR G~     1
-#>  6 LAZO                48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
-#>  7 MAHIA               48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR M~     1
-#>  8 MERONI              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR M~     1
-#>  9 PEREYRA             48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
-#> 10 TOURNE              48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑORA ~     0
-#> 11 VIERA               48 COMISION PERMANENTE 2019-09-17 0?width~ SEÑOR V~     1
+#>    legislator legislature chamber             date       id         speech   sex
+#>    <chr>            <int> <chr>               <date>     <chr>      <chr>  <dbl>
+#>  1 ABDALA              48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
+#>  2 ASTI                48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
+#>  3 AVIAGA              48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     0
+#>  4 BORDABERRY          48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
+#>  5 GOÑI                48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
+#>  6 LAZO                48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     0
+#>  7 MAHIA               48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
+#>  8 MERONI              48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
+#>  9 PEREYRA             48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     0
+#> 10 TOURNE              48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     0
+#> 11 VIERA               48 COMISION PERMANENTE 2019-09-17 0?width=8~ SEÑOR~     1
 
 
 text$word <- speech_word_count(text$speech)
@@ -121,7 +121,7 @@ dplyr::glimpse(text)
 #> $ id          <chr> "0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollo~
 #> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné~
 #> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
-#> $ word        <int> 400, 46, 107, 956, 100, 103, 128, 12, 12, 111, 8
+#> $ word        <int> 403, 47, 110, 962, 103, 104, 131, 13, 13, 112, 9
 ```
 
 ### Possible application
@@ -164,6 +164,37 @@ text$speech %>%
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="80%" />
 
+### Detecting roll-call votes in parliamentary speeches
+
+``` r
+urls <- speech_url(chamber = "D", days = c("12-06-2002", "14-04-2004"))
+rollcall <- speech_rollcall(file =  urls)
+
+rollcall
+#> # A tibble: 165 x 10
+#>    legislator       vote argument speech chamber date       legislature rollcall
+#>    <chr>           <dbl>    <dbl> <chr>  <chr>   <date>           <int>    <int>
+#>  1 ABDALA              0        0 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  2 AGAZZI              1        1 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  3 AMEN VAGHETTI       0        0 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  4 AMORIN BATLLE       0        0 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  5 ARAUJO              0        1 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  6 ARGENZIO            0        1 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  7 ARGIMON             0        0 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  8 ARRARTE FERNAN~     1        0 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#>  9 ARREGUI             1        1 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#> 10 BARAIBAR            1        0 SEÑOR~ CAMARA~ 2002-06-12          45        1
+#> # ... with 155 more rows, and 2 more variables: id <chr>, sex <dbl>
+
+summary(rollcall)
+#> # A tibble: 2 x 10
+#>   Chamber Date       Legislators Affirmative Negative prop_AF prop_NG prop_women
+#>   <chr>   <date>           <int>       <dbl>    <dbl>   <dbl>   <dbl>      <dbl>
+#> 1 CRR     2002-06-12          92          45       47    48.9    51.1       13.0
+#> 2 CRR     2004-04-14          73          32       41    43.8    56.2       15.1
+#> # ... with 2 more variables: prop_arg <dbl>, rc <int>
+```
+
 #### Citation
 
 To cite package`speech` in publications, please use:
@@ -173,18 +204,17 @@ citation(package = 'speech')
 #> 
 #> To cite package 'speech' in publications use:
 #> 
-#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (2021). speech:
-#>   Legislative Speeches. R package version 0.1.4.
-#>   https://CRAN.R-project.org/package=speech
+#>   Nicolas Schmidt, Diego Lujan and Juan Andres Moraes (NA). speech:
+#>   Legislative Speeches. R package version 0.1.5.
+#>   https://github.com/Nicolas-Schmidt/speech
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {speech: Legislative Speeches},
 #>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
-#>     year = {2021},
-#>     note = {R package version 0.1.4},
-#>     url = {https://CRAN.R-project.org/package=speech},
+#>     note = {R package version 0.1.5},
+#>     url = {https://github.com/Nicolas-Schmidt/speech},
 #>   }
 ```
 

@@ -1,11 +1,30 @@
 #' @importFrom magrittr %>%
 #' @importFrom lubridate %within% ymd
 #' @importFrom pdftools pdf_text
+#' @importFrom dplyr summarise ungroup group_by n select
+
+
+v <- c('rollcall',
+       'vote',
+       'Legislators',
+       'Affirmative',
+       'prop_AF',
+       'sex',
+       'argument',
+       'Date',
+       'Negative',
+       'prop_NG',
+       'prop_women',
+       'prop_arg',
+       'rc',
+       'Chamber',
+       'chamber')
+
 
 
 if(getRversion() >= "2.15.1"){
-    utils::globalVariables(c('.'))
-    utils::suppressForeignCheck(c('.'))
+    utils::globalVariables(c('.', v))
+    utils::suppressForeignCheck(c('.', v))
 }
 
 legislature <- function(df, name_var_date){
@@ -314,7 +333,9 @@ aux <- function(object){
                                   "SE:\u00edi\u00ed'OR",
                                   "SEt\\\u00edOR",
                                   "SI \u00d1OR",
-                                  "SE \u00d1OR"
+                                  "SE \u00d1OR",
+                                  #"ÑOR",
+                                  "\u00d1OR"
                                   ),
                                 collapse = "|")
 
@@ -361,8 +382,22 @@ aux <- function(object){
         object
 }
 
+
+prospow <- function(file, add.error.sir = NULL){
+
+        esir <- aux("esir")
+        if(!is.null(add.error.sir)){
+            esir <- paste0(esir, "|", paste0(add.error.sir, collapse = "|"), collapse = "")
+        }
+        text0 <- pdfSIR(file)
+        text  <- preComp(text0[["text"]], esir = esir)
+        text1 <- text0[[1]]
+        list(text, text1)
+}
+
+
 speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler = FALSE,
-                       quality = FALSE, param = list(char = 6500, drop.page = 2)){
+                       quality = FALSE, param = list(char = 6500, drop.page = 2), nominate = FALSE){
 
         esir <- aux("esir")
 
@@ -446,7 +481,13 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
                 }else{
                         eleg <- paste0(eleg, ")")
                 }
-                text2 <- text2[-c(stringr::str_which(toupper(text2$legislator), toupper(eleg))),]
+
+                ## rollcall ----------------------------------------------------
+
+                if(!nominate){
+                    text2 <- text2[-c(stringr::str_which(toupper(text2$legislator), toupper(eleg))),]
+                }
+
                 text2 <- text2[nchar(text2$legislator) < 25 ,] # nombres muy largos
                 text2 <- text2[stringr::str_detect(text2$speech, "[a-z]"),]
 
@@ -532,6 +573,7 @@ compiler <- function(tidy_speech, compiler_by = character()){
 }
 
 chamber_fit <- function(chamber){
+
         problem <- aux("chamb")[5:8]
         correct <- aux("chamb")[1:4]
         ubic <- which(problem %in% chamber)
@@ -542,6 +584,7 @@ chamber_fit <- function(chamber){
 }
 
 header <- function(file){
+
     fdoc <- tm::readPDF("pdftools")
     fdoc <- fdoc(elem = list(uri = file), language = "spanish")$content
     fdoc <- fdoc %>%
@@ -558,6 +601,7 @@ header <- function(file){
 }
 
 separate_sir <- function(vec){
+
     detect <- unlist(stringr::str_extract_all(string = vec, pattern = "[[:alnum:][:punct:]]{1,}SE\u00d1OR"))
     if(length(detect) > 0){
         vec_corte <- regexpr("[[:alnum:][:punct:]]SE\u00d1OR", detect)
@@ -575,6 +619,7 @@ separate_sir <- function(vec){
 
 
 add_sex <- function(data){
+
     data$sex <- ifelse(stringr::str_detect(data$speech, pattern = "^SE\u00d1ORA"), 0, 1)
     data
 
@@ -582,32 +627,38 @@ add_sex <- function(data){
 
 
 clean_t <- function(x){
+
     if("legislature" %in% names(x)){
         if(is.na(x$legislature[1])){
             x$legislature <- NA_integer_
         }
     }
+
     if("chamber" %in% names(x)){
         if(is.na(x$chamber[1])){
             x$chamber <- NA_character_
         }
-           }
+    }
+
     if("date" %in% names(x)){
         if(is.na(x$date[1])){
             x$date <- as.Date(x$date)
         }
-           }
+    }
+
     if("id" %in% names(x)){
         if(is.na(x$id[1])){
             x$id <- NA_character_
         }
-            }
+    }
+
     x$speech <- stringr::str_squish(x$speech)
     x
 }
 
 
 test_date <- function(from, to, legislature){
+
     legislaturas$interval <- lubridate::interval(legislaturas$fecha_inicio, legislaturas$fecha_fin)
     desde <- which(lubridate::dmy(from) %within% legislaturas$interval)
     hasta <- which(lubridate::dmy(to) %within% legislaturas$interval)
@@ -616,6 +667,7 @@ test_date <- function(from, to, legislature){
 }
 
 urlp <- function(step){
+
     u <- list(
         step1 = "https://parlamento.gub.uy/documentosyleyes/documentos/diarios-de-sesion?Cpo_Codigo_2=",
         step2 = "&Lgl_Nro=",
@@ -628,6 +680,7 @@ urlp <- function(step){
 
 
 proto_url <- function(chamber, legislature, from, to){
+
     paginas <- as.character(c(0:20))
     url <- purrr::map(paginas,~ paste0(urlp(1),
                                        chamber,
@@ -650,27 +703,51 @@ proto_url <- function(chamber, legislature, from, to){
 
 
 parseo <- function(x){
+
     paste(substring(x, 9, 10), substring(x, 6, 7), substring(x, 1, 4), sep = "-")
 }
 
 fechas_legis <- function(from, to){
+
     periodo <- lubridate::as_date(lubridate::dmy(from):lubridate::dmy(to))
     lista <- list()
+
     for(i in 1:nrow(legislaturas)){
         lista[[paste(i)]] <- lubridate::as_date(lubridate::ymd(legislaturas$fecha_inicio[i]):lubridate::ymd(legislaturas$fecha_fin[i]))
     }
+
     dat <- data.frame(
         legis  = rep(1:nrow(legislaturas), lengths(lista)),
         fechas = lubridate::as_date(unlist(lista))
     )
+
     dat[which(dat$fechas %in% periodo),] %>% split(., f = .$legis) %>% lapply(., function(x) range(x$fechas))
 }
 
 
+
+urls.out <- function(chamber, from, to){
+
+    param <- fechas_legis(from, to)
+    out <- list()
+    for(i in 1:length(param)){
+      out[[i]] <- proto_url(chamber     = chamber,
+                            legislature = names(param)[i],
+                            from        = parseo(param[[i]][1]),
+                            to          = parseo(param[[i]][2]))
+    }
+  unlist(out)
+
+}
+
+
+
 uncompiler <- function(data){
+
     dat <- data
     comp    <- base::split(dat, dat$id)
     diarios <- length(comp)
+
     unc <- list()
     for(i in 1:diarios){
         ud <- comp[[i]]
@@ -692,6 +769,7 @@ uncompiler <- function(data){
 }
 
 pdfSIR <- function(file){
+
     fdoc <- tm::readPDF("pdftools")
     fdoc <- fdoc(elem = list(uri = file), language = "spanish")$content
     a    <- strsplit(fdoc, "\n")
@@ -704,9 +782,11 @@ pdfSIR <- function(file){
 }
 
 extract_page <- function(text, umbral = ceiling(max(nchar(text))/2)){
+
     nch  <- nchar(text)
     vec1 <- character()
     vec2 <- character()
+
     for(i in 1:length(text)){
         if(nch[i] > umbral){
             vec1[i] <- substring(text[i], 1, umbral)
@@ -716,6 +796,7 @@ extract_page <- function(text, umbral = ceiling(max(nchar(text))/2)){
             vec2[i] <- "   "
         }
     }
+
     vec3 <- c(vec1, vec2)
     vec3 <- stringr::str_replace_all(vec3, pattern = "\\s{2,}", " ") %>% stringr::str_squish()
     vec3 <- paste(vec3[nchar(vec3) > 0L], collapse = " ")
@@ -725,6 +806,7 @@ extract_page <- function(text, umbral = ceiling(max(nchar(text))/2)){
 }
 
 preComp <- function(text, esir){
+
     out <- unlist(lapply(X = text, FUN = extract_page))
     # out <- stringr::str_replace_all(out, pattern = "[[:punct:]]", replacement = "")
     out <- out %>%
@@ -746,16 +828,129 @@ preComp <- function(text, esir){
 
 
 
+nominal <- function(z){
+    stringr::str_detect(string = z, pattern = "Se toma en el siguiente orden")
+}
+
+
+nom_detect <- function(sn){
+
+    nu <- nominal(sn)
+    if(sum(nu) != 0){
+        which(nu)
+    } else{
+        stop("No roll-call vote detected.", call. = FALSE)
+    }
+
+}
 
 
 
+SError <- function(zj){
+
+    zj$speech <- stringr::str_remove_all(string =zj$speech, pattern = "(.SE| SE)")
+    ale <- stringr::str_which(zj$speech, pattern = "SE\u00d1ORALE")
+
+    if(length(ale) > 0){
+           zj$legislator[ale] <- "SE\u00d1ORALE"
+           zj$speech[ale] <- paste("SE\u00d1OR", zj$speech[ale])
+           #zj$sex[ale] <- 1
+    }
+    zj
+}
+
+speech_pow_rc <- function(textorc){
+
+    texto <- textorc #### DATA
+    nd <- nom_detect(texto$speech)
+    nf <- stringr::str_which(
+                    string = texto$speech,
+                    pattern = "(Dese cuenta del resultado|Han votado)"
+                    )
+
+    votaciones <- list()
+    for(i in 1:length(nd)){
+        votaciones[[i]] <- texto[nd[i]:nf[i],]
+        votaciones[[i]]$rollcall <- i
+        votaciones[[i]]$vote1 <- NA
+        votaciones[[i]]$vote1[stringr::str_detect(votaciones[[i]]$speech, pattern = "(Afirmativ|Por la afirma)")] <- "Afirmativo"
+        votaciones[[i]]$vote1[stringr::str_detect(votaciones[[i]]$speech, pattern = "(Negativ|Por la negat)")]   <- "Negativo"
+        votaciones[[i]]$vote <- ifelse(votaciones[[i]]$vote1 == "Afirmativo", 1, 0)
+        votaciones[[i]] <- votaciones[[i]][-!is.na(votaciones[[i]]$vote1), ]
+        votaciones[[i]]$argument <- ifelse(stringr::str_detect(votaciones[[i]]$speech, pattern = "funda"), 1, 0)
+        votaciones[[i]] <- votaciones[[i]][,c("legislator",
+                                              "vote",
+                                              "argument",
+                                              "speech",
+                                              "chamber",
+                                              "date",
+                                              "legislature",
+                                              "rollcall",
+                                              "id")]
+
+    }
+
+    vv <- do.call("rbind", votaciones)
+    vv <- assignC(SError(vv))
+    return(vv)
+
+}
+
+
+assignC <- function(.X){
+    class(.X) <- c("nominal", class(.X))
+    return(.X)
+}
 
 
 
+cmabSUMM <- function(dd){
+
+    ch <- dd
+    chamb <- character()
+    for(i in 1:length(ch)){
+        if(ch[i] == "ASAMBLEA GENERAL"){chamb[i] <- "AG"}
+        if(ch[i] == "CAMARA DE SENADORESL"){chamb[i] <- "CSS"}
+        if(ch[i] == "CAMARA DE REPRESENTANTES"){chamb[i] <- "CRR"}
+        if(ch[i] == "COMISION PERMANENTE"){chamb[i] <- "CP"}
+        if(is.na(ch[i])){chamb[i] <- NA_character_}
+    }
+    chamb
+    #dd$Chamber <- chamb
+    #dd <- dd[,c(ncol(dd), 1:(ncol(dd)-1))]
+
+}
 
 
+table_rollcall_vote <- function(dat){
 
+    foo <-
+    dat %>%
+    group_by(rollcall, date) %>%
+    summarise(Legislators = n(),
+              Affirmative = sum(vote),
+              Negative   = Legislators - Affirmative,
+              prop_AF = round((Affirmative/Legislators)*100, 2),
+              prop_NG = round(100-prop_AF,2),
+              prop_women = round(((Legislators - sum(sex, na.rm = T))/Legislators)*100,2),
+              prop_arg = round((sum(argument)/Legislators)*100,2),
+              Date    = unique(date),
+              rc = unique(rollcall),
+              Chamber = cmabSUMM(chamber)[1]) %>%
+    ungroup() %>%
+    select(Chamber,
+           Date,
+           Legislators,
+           Affirmative,
+           Negative,
+           prop_AF,
+           prop_NG,
+           prop_women,
+           prop_arg,
+           rc)
 
+    foo
 
+}
 
 

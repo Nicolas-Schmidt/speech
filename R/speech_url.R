@@ -9,26 +9,39 @@
 #'             }
 #' @param from character vector. Date in DD-MM-YYYY format
 #' @param to character vector. Date in DD-MM-YYYY format
-#' @author Elina Gomez \email{elina.gomez@cienciassociales.edu.uy}
+#' @param days character vector. Date in DD-MM-YYYY format.
 #' @return character vector
 #' @examples
-#' # speech_url(chamber     = "D",
-#' #            from        = "15-02-2015",
-#' #            to          = "15-03-2015")
+#' # speech_url(chamber = "D",
+#' #            from    = "15-02-2015",
+#' #            to      = "15-03-2015")
+#' #
+#' # speech_url(chamber = "D",
+#' #            from    = "15-02-2015",
+#' #            to      = "15-02-2015")
+#' #
+#' # speech_url(chamber = "D",
+#' #            days   = "15-02-2015")
+#' #
+#' # speech_url(chamber = "D",
+#' #            days    = c("12-06-2002", "14-04-2004"))
+#' #
+#'
 #' @export
 
 
-speech_url <- function(chamber, from, to){
+speech_url <- function(chamber, from, to, days = NULL){
 
-  param <- fechas_legis(from, to)
-  out <- list()
-  for(i in 1:length(param)){
-    out[[i]] <- proto_url(chamber     = chamber,
-                          legislature = names(param)[i],
-                          from        = parseo(param[[i]][1]),
-                          to          = parseo(param[[i]][2]))
+
+  if(!is.null(days)){
+    url <- character()
+    for(i in 1:length(days)){
+      url[i] <- urls.out(chamber = chamber, from = days[i] , to = days[i])
+    }
+  } else{
+    url <- urls.out(chamber = chamber, from = from, to = to)
   }
-  url <- unlist(out)
+
   if(is.null(url)){
     stop("There are no sessions in that date range.", call. = FALSE)
   }
