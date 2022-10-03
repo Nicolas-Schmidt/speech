@@ -55,12 +55,12 @@ remotes::install_github("Nicolas-Schmidt/speech")
 <img src="man/figures/fspeechextract.png" style="margin-center:30px;margin-bottom:5px;" width="600" align="center"></a>
 
 
-#### 3 - First construction of the database: `speech::speech_build()`
+#### 3 - First construction of the data set: `speech::speech_build()`
 
 <img src="man/figures/fspeechnocompiler.png" style="margin-center:30px;margin-bottom:5px;" width="900" align="center"></a>
 
 
-#### 4 - Final database: `speech::speech_build(., compiler = TRUE)`
+#### 4 - Final data set: `speech::speech_build(., compiler = TRUE)`
 
 <img src="man/figures/fspeechcompiler.png" style="margin-center:30px;margin-bottom:5px;" width="900" align="center"></a>
 

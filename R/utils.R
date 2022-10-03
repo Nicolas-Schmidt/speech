@@ -517,6 +517,8 @@ speech.pow <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler
         }
 }
 
+
+
 compiler <- function(tidy_speech, compiler_by = character()){
 
     vars <- match(compiler_by, names(tidy_speech))
@@ -626,6 +628,7 @@ separate_sir <- function(vec){
 add_sex <- function(data){
 
     data$sex <- ifelse(stringr::str_detect(data$speech, pattern = "^SE\u00d1ORA"), 0, 1)
+    data[stringr::str_which(data$speech, pattern = "SE\u00d1ORALE"), "sex"] <- 1
     data
 
 }
@@ -958,5 +961,14 @@ table_rollcall_vote <- function(dat){
     foo
 
 }
+
+### parse id
+# If the identifier (id) has more than 20 characters it will be compressed to 20.
+# The same if the id is the same for multiple files. In the latter case a new id will
+# be generated in the form 'text_01'...'text_n'.
+
+
+
+
 
 
