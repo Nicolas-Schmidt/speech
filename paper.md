@@ -40,19 +40,19 @@ By way of example, Figure \ref{f1} shows a conventional session diary and the fo
 
 \begin{figure}[htpb!]
   \includegraphics{figpaper/f1.png}
-  \caption{...}
+  \caption{Raw floor speech}
   \label{f1}
 \end{figure}
 
 \begin{figure}[htpb!]
   \includegraphics{figpaper/f2.png}
-  \caption{...}
+  \caption{Floor speech extract sections}
   \label{f2}
 \end{figure}
 
 \begin{figure}[htpb!]
   \includegraphics{figpaper/f3.png}
-  \caption{...}
+  \caption{Convert to data.frame}
   \label{f3}
 \end{figure}
 
@@ -93,21 +93,21 @@ print(text)
 ```
 
 ```
-# A tibble: 259 x 7
-   legislator  speech                                     chamber date       legislature id      sex
-   <chr>       <chr>                                      <chr>   <date>           <int> <chr> <dbl>
- 1 SEÑORALE    "SEÑOR SEÑORALE, Representante por Salto\~ CAMARA~ 2002-06-12          45 0?wi~     0
- 2 MORALES     "SEÑOR MORALES. Señor Presidente: quiero ~ CAMARA~ 2002-06-12          45 0?wi~     1
- 3 MELLO       "SEÑOR MELLO. Señor Presidente: la preocu~ CAMARA~ 2002-06-12          45 0?wi~     1
- 4 FONTICIELLA "SEÑOR FONTICIELLA. Señor Presidente: en ~ CAMARA~ 2002-06-12          45 0?wi~     1
- 5 LEGNANI     "SEÑOR LEGNANI. Señor Presidente: en esto~ CAMARA~ 2002-06-12          45 0?wi~     1
- 6 MAHIA       "SEÑOR MAHIA. Señor Presidente: hace un p~ CAMARA~ 2002-06-12          45 0?wi~     1
- 7 LAVIÑA      "SEÑOR LAVIÑA. Señor Presidente: en su op~ CAMARA~ 2002-06-12          45 0?wi~     1
- 8 BARRIOS     "SEÑOR BARRIOS. ¡Que se comunique de inme~ CAMARA~ 2002-06-12          45 0?wi~     1
- 9 LAVIÑA      "SEÑOR LAVIÑA. Señor Presidente: este Pro~ CAMARA~ 2002-06-12          45 0?wi~     1
-10 MELGAREJO   "SEÑOR MELGAREJO. ¡Que se comunique de in~ CAMARA~ 2002-06-12          45 0?wi~     1
-# ... with 249 more rows
-> 
+# A tibble: 161 x 7
+   legislator    legislature chamber      date       id    speech   sex
+   <chr>               <int> <chr>        <date>     <chr> <chr>  <dbl>
+ 1 ABDALA                 45 CAMARA DE R~ 2002-06-12 0?wi~ SEÑOR~     1
+ 2 AGAZZI                 45 CAMARA DE R~ 2002-06-12 0?wi~ SEÑOR~     1
+ 3 AGAZZI                 45 CAMARA DE R~ 2004-04-14 0?wi~ SEÑOR~     1
+ 4 ALVAREZ                45 CAMARA DE R~ 2004-04-14 0?wi~ SEÑOR~     1
+ 5 AMARO CEDRES           45 CAMARA DE R~ 2004-04-14 0?wi~ SEÑOR~     1
+ 6 AMEN VAGHETTI          45 CAMARA DE R~ 2002-06-12 0?wi~ SEÑOR~     1
+ 7 AMEN VAGHETTI          45 CAMARA DE R~ 2004-04-14 0?wi~ SEÑOR~     1
+ 8 AMORIN BATLLE          45 CAMARA DE R~ 2002-06-12 0?wi~ SEÑOR~     1
+ 9 ARAUJO                 45 CAMARA DE R~ 2002-06-12 0?wi~ SEÑOR~     1
+10 ARGENZIO               45 CAMARA DE R~ 2002-06-12 0?wi~ SEÑOR~     1
+# ... with 151 more rows
+>
 ```
 
 
@@ -120,19 +120,20 @@ print(rollcall)
 
 ```
 # A tibble: 165 x 10
-   legislator         vote argument speech       chamber date       legislature rollcall id      sex
-   <chr>             <dbl>    <dbl> <chr>        <chr>   <date>           <int>    <int> <chr> <dbl>
- 1 ABDALA                0        0 SEÑOR ABDAL~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 2 AGAZZI                1        1 SEÑOR AGAZZ~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 3 AMEN VAGHETTI         0        0 SEÑOR AMEN ~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 4 AMORIN BATLLE         0        0 SEÑOR AMORI~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 5 ARAUJO                0        1 SEÑOR ARAUJ~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 6 ARGENZIO              0        1 SEÑOR ARGEN~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 7 ARGIMON               0        0 SEÑORA ARGI~ CAMARA~ 2002-06-12          45        1 0?wi~     0
- 8 ARRARTE FERNANDEZ     1        0 SEÑOR ARRAR~ CAMARA~ 2002-06-12          45        1 0?wi~     1
- 9 ARREGUI               1        1 SEÑOR ARREG~ CAMARA~ 2002-06-12          45        1 0?wi~     1
-10 BARAIBAR              1        0 SEÑOR BARAI~ CAMARA~ 2002-06-12          45        1 0?wi~     1
-# ... with 155 more rows
+   legislator       vote argument speech chamber date       legislature
+   <chr>           <dbl>    <dbl> <chr>  <chr>   <date>           <int>
+ 1 ABDALA              0        0 SEÑOR~ CAMARA~ 2002-06-12          45
+ 2 AGAZZI              1        1 SEÑOR~ CAMARA~ 2002-06-12          45
+ 3 AMEN VAGHETTI       0        0 SEÑOR~ CAMARA~ 2002-06-12          45
+ 4 AMORIN BATLLE       0        0 SEÑOR~ CAMARA~ 2002-06-12          45
+ 5 ARAUJO              0        1 SEÑOR~ CAMARA~ 2002-06-12          45
+ 6 ARGENZIO            0        1 SEÑOR~ CAMARA~ 2002-06-12          45
+ 7 ARGIMON             0        0 SEÑOR~ CAMARA~ 2002-06-12          45
+ 8 ARRARTE FERNAN~     1        0 SEÑOR~ CAMARA~ 2002-06-12          45
+ 9 ARREGUI             1        1 SEÑOR~ CAMARA~ 2002-06-12          45
+10 BARAIBAR            1        0 SEÑOR~ CAMARA~ 2002-06-12          45
+# ... with 155 more rows, and 3 more variables: rollcall <int>,
+#   id <chr>, sex <dbl>
 >
 ```
 
@@ -143,12 +144,13 @@ summary(rollcall)
 
 ```
 # A tibble: 2 x 10
-  Chamber Date       Legislators Affirmative Negative prop_AF prop_NG prop_women prop_arg    rc
-  <chr>   <date>           <int>       <dbl>    <dbl>   <dbl>   <dbl>      <dbl>    <dbl> <int>
-1 CRR     2002-06-12          92          45       47    48.9    51.1       13.0     48.9     1
-2 CRR     2004-04-14          73          32       41    43.8    56.2       15.1     11.0     1
-> 
-
+  Chamber Date       Legislators Affirmative Negative prop_AF prop_NG
+  <chr>   <date>           <int>       <dbl>    <dbl>   <dbl>   <dbl>
+1 CRR     2002-06-12          92          45       47    48.9    51.1
+2 CRR     2004-04-14          73          32       41    43.8    56.2
+# ... with 3 more variables: prop_women <dbl>, prop_arg <dbl>,
+#   rc <int>
+>
 ```
 
 # Availability
