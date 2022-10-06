@@ -34,7 +34,7 @@ Political scientists have sought to estimate legislators' policy preferences bas
 
 The main problem that the speech package solves is the conversion of textual information in dialogue format such as parliamentary speeches to an ordered data set where it is possible to obtain the speech of each of the legislators in a parliamentary session. For this purpose, a search engine with regular expressions was designed to identify each time a legislator takes the floor and delivers a speech. Since we are interested in gathering and ordering individual speeches, it is important to identify floor speeches by legislator. To this end, the package allows to detect each of the speaking legislators and their respective texts in order to later advance with the incorporation of additional variables that allow for relevant statistical analysis according to different attributes (political party, sex, district, among others).
 
-By way of example, Figure \ref{f1} shows a conventional session diary and the following two figures (\ref{f2}, \ref{f3})show the parts of the text in pdf format that the speech package identifies and extracts to compile an ordered data set.
+By way of example, Figure \ref{f1} shows a conventional session diary and the following two Figures (\ref{f2}, \ref{f3}) show the parts of the text in pdf format that the speech package identifies and extracts to compile an ordered data set.
 
 
 
