@@ -7,6 +7,7 @@ navbar:
     left:
     - intro
     - reference
+    - changelog
     - cite
     right:
     - home
@@ -19,6 +20,9 @@ navbar:
     cite:
       text: citation
       href: authors.html
+    changelog:
+      text: Changelog
+      href: news/index.html
     github:
       icon: fa-github fa-lg
       href: https://github.com/Nicolas-Schmidt/speech/
