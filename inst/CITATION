@@ -1,0 +1,16 @@
+citHeader("To cite speech in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "Estimating Parties’ Policy Positions in Uruguay: Comparing Scaling Methods Based on Legislative Speeches and Roll-Call Votes",
+  author   = "Diego Luján, Nicolás Schmidt, Juan A. Moraes",
+  journal  = "Latin American Politics and Society",
+  year     = 2023,
+  volume   = 0,
+  number   = 0,
+  pages    = "1-17",
+  url      = "doi:10.1017/lap.2023.12",
+  textVersion = paste(
+
+  )
+)

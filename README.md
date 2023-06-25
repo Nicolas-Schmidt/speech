@@ -120,7 +120,7 @@ dplyr::glimpse(text)
 #> $ legislature <int> 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48
 #> $ chamber     <chr> "COMISION PERMANENTE", "COMISION PERMANENTE", "COMISION PE…
 #> $ date        <date> 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17, 2019-09-17…
-#> $ id          <chr> "20190917c0001.pdf?embedded=true", "20190917c0001.pdf?emb…
+#> $ id          <chr> "20190917c0001", "20190917c0001", "20190917c0001", "20190…
 #> $ speech      <chr> "SEÑOR ABDALA. Voto por la señora legisladora Daisy Tourné…
 #> $ sex         <dbl> 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1
 #> $ word        <int> 398, 46, 105, 951, 98, 103, 126, 12, 12, 111, 8
@@ -206,18 +206,20 @@ To cite package`speech` in publications, please use:
 ``` r
 citation(package = 'speech')
 #> 
-#> To cite package 'speech' in publications use:
+#> To cite speech in publications use:
 #> 
-#>   Schmidt N, Lujan D, Moraes J (????). _speech: Legislative Speeches_.
-#>   R package version 0.1.6, <https://github.com/Nicolas-Schmidt/speech>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
-#>   @Manual{,
-#>     title = {speech: Legislative Speeches},
-#>     author = {Nicolas Schmidt and Diego Lujan and Juan Andres Moraes},
-#>     note = {R package version 0.1.6},
-#>     url = {https://github.com/Nicolas-Schmidt/speech},
+#>   @Article{,
+#>     title = {Estimating Parties’ Policy Positions in Uruguay: Comparing Scaling Methods Based on Legislative Speeches and Roll-Call Votes},
+#>     author = {Diego Luján and Nicolás Schmidt and Juan A. Moraes},
+#>     journal = {Latin American Politics and Society},
+#>     year = {2023},
+#>     volume = {0},
+#>     number = {0},
+#>     pages = {1-17},
+#>     url = {doi:10.1017/lap.2023.12},
 #>   }
 ```
 
