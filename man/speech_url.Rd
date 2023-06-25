@@ -15,11 +15,11 @@ speech_url(chamber, from, to, days = NULL)
          \item{C}{Comision Permanente}
         }}
 
-\item{from}{character vector. Date in DD-MM-YYYY format}
+\item{from}{character vector. Date in YYYY-MM-DD format}
 
-\item{to}{character vector. Date in DD-MM-YYYY format}
+\item{to}{character vector. Date in YYYY-MM-DD format}
 
-\item{days}{character vector. Date in DD-MM-YYYY format.}
+\item{days}{character vector. Date in YYYY-MM-DD format.}
 }
 \value{
 character vector
@@ -29,18 +29,18 @@ Allows to create a vector of url to download within a period within a legislatur
 }
 \examples{
 # speech_url(chamber = "D",
-#            from    = "15-02-2015",
-#            to      = "15-03-2015")
+#            from    = "2015-02-15",
+#            to      = "2015-03-15")
 #
 # speech_url(chamber = "D",
-#            from    = "15-02-2015",
-#            to      = "15-02-2015")
+#            from    = "2015-02-15",
+#            to      = "2015-03-15")
 #
 # speech_url(chamber = "D",
-#            days   = "15-02-2015")
+#            days   = "2015-02-15")
 #
 # speech_url(chamber = "D",
-#            days    = c("12-06-2002", "14-04-2004"))
+#            days    = c("2002-06-12", "2004-04-14"))
 #
 
 }

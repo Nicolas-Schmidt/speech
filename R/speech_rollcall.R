@@ -35,7 +35,7 @@
 speech_rollcall <- function(file, add.error.sir = NULL, rm.error.leg = NULL){
 
         out <-
-                file %>%
+                sfile(file) %>%
                 purrr::map(speech.pow,
                            add.error.sir = add.error.sir,
                            rm.error.leg = rm.error.leg,

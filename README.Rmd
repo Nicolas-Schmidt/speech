@@ -72,7 +72,7 @@ You can see more complex examples in the following [**link**](https://github.com
 
 ```{r example}
 library(speech)
-url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diario-de-sesion/comisionpermanente/6084/IMG/0?width=800&height=600&hl=en_US1&iframe=true&rel=nofollow"
+url <- "https://parlamento.gub.uy/documentosyleyes/documentos/diarios-de-sesion/6084/IMG"
 text <- speech::speech_build(file = url)
 text
 
@@ -130,7 +130,7 @@ text$speech %>%
 ### Detecting roll-call votes in parliamentary speeches
 
 ```{r}
-urls <- speech_url(chamber = "D", days = c("12-06-2002", "14-04-2004"))
+urls <- speech_url(chamber = "D", days = c("2002-06-12", "2004-04-14"))
 rollcall <- speech_rollcall(file =  urls)
 
 rollcall

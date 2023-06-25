@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">speech</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.6</span>
       </span>
     </div>
 
@@ -55,14 +55,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">speech_build</span><span class="op">(</span>
-  <span class="va">file</span>,
-  add.error.sir <span class="op">=</span> <span class="cn">NULL</span>,
-  rm.error.leg <span class="op">=</span> <span class="cn">NULL</span>,
-  compiler <span class="op">=</span> <span class="cn">FALSE</span>,
-  quality <span class="op">=</span> <span class="cn">FALSE</span>,
-  param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>char <span class="op">=</span> <span class="fl">6500</span>, drop.page <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">speech_build</span><span class="op">(</span></span>
+<span>  <span class="va">file</span>,</span>
+<span>  add.error.sir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rm.error.leg <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  compiler <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  quality <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>char <span class="op">=</span> <span class="fl">6500</span>, drop.page <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -70,19 +70,27 @@
     <dl><dt>file</dt>
 <dd><p>list or character vector specifying the path or URL to a PDF file.
 It can be one or more files.</p></dd>
+
+
 <dt>add.error.sir</dt>
 <dd><p>character vector. It allows to specify different ways in which
 the term that orders the speeches could be miswritten: sir. By default it is <code>NULL</code>.</p></dd>
+
+
 <dt>rm.error.leg</dt>
 <dd><p>character vector. It allows to add legislator's names
 to be eliminated. By default it is <code>NULL</code>.
 By default, "PRESIDENTE", "SECRETARIO", "SUBSECRETARIO", and "MINISTRO" are eliminated.</p></dd>
+
+
 <dt>compiler</dt>
 <dd><p>logical. When the checking of the process of conversion from pdf to data frame
 is completed, it is necessary to compile the data frame. To compile implies to unite all the
 speeches of each of the legislators for each document. As it is an operation
 that must be carried out after making corrections, it is necessary to opt for it.
 By default it is <code>FALSE</code>.</p></dd>
+
+
 <dt>quality</dt>
 <dd><p>logical. If <code>TRUE</code>, two quality indicators are added about
 the process, according to the quality of the document.</p><ul><li><p>index_1: Proportion of the text recovered according to the original document
@@ -91,14 +99,21 @@ the process, according to the quality of the document.</p><ul><li><p>index_1: Pr
         recovered text. It is the proportion of the document in which there are
         only interventions by legislators.</p></li>
 </ul></dd>
+
+
 <dt>param</dt>
 <dd><p>list of length 2 with magnitudes for arguments "character for page" and "drop page
 non evaluate" respectively. The default values are the median characters of
 8500 documents that make up the speech datasets.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data.frame class <code>puy</code> with the following variables:</p><ul><li><p><code>legislator</code>: name of the legislators</p></li>
+    
+
+<p>data.frame class <code>puy</code> with the following variables:</p>
+<p></p>
+<ul><li><p><code>legislator</code>: name of the legislators</p></li>
 <li><p><code>speech</code>: speeches by legislators</p></li>
 <li><p><code>date</code>: session date</p></li>
 <li><p><code>id</code>: name <code>file</code></p></li>
@@ -106,7 +121,9 @@ non evaluate" respectively. The default values are the median characters of
 <li><p><code>sex</code>: sex</p></li>
 <li><p><code>chamber</code>: chamber to which the document belongs.
             It can be: Chamber of Representatives, Senate, General Assembly or Permanent Commission.</p></li>
-</ul><p>If quality is TRUE, the following are added:</p><ul><li><p><code>index_1</code>: index_1</p></li>
+</ul><p>If quality is TRUE, the following are added:</p>
+<p></p>
+<ul><li><p><code>index_1</code>: index_1</p></li>
 <li><p><code>index_2</code>: index_2</p></li>
 </ul></div>
     <div id="details">
@@ -125,21 +142,21 @@ non evaluate" respectively. The default values are the median characters of
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># url &lt;- speech::speech_url(chamber = "C", from = "17-09-2019", to = "17-09-2019")</span></span>
-<span class="r-in"><span class="co"># out &lt;- speech_build(file = url)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># out &lt;- speech_build(file = url, compiler = FALSE,</span></span>
-<span class="r-in"><span class="co">#                     quality = TRUE,</span></span>
-<span class="r-in"><span class="co">#                     add.error.sir = c("SEf'IOR"),</span></span>
-<span class="r-in"><span class="co">#                     rm.error.leg = c("PRtSIDENTE", "SUB", "PRfSlENTE"),</span></span>
-<span class="r-in"><span class="co">#                     param = list(char = 6000, drop.page = 3))</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># out &lt;- list.files(pattern = "*.pdf") %&gt;% speech_build()</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># out &lt;- list.files(pattern = "*.pdf") %&gt;%</span></span>
-<span class="r-in"><span class="co">#     speech_build(., compiler = TRUE, param = list(char = 4500, drop.page = 3))</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># url &lt;- speech::speech_url(chamber = "C", from = "17-09-2019", to = "17-09-2019")</span></span></span>
+<span class="r-in"><span><span class="co"># out &lt;- speech_build(file = url)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># out &lt;- speech_build(file = url, compiler = FALSE,</span></span></span>
+<span class="r-in"><span><span class="co">#                     quality = TRUE,</span></span></span>
+<span class="r-in"><span><span class="co">#                     add.error.sir = c("SEf'IOR"),</span></span></span>
+<span class="r-in"><span><span class="co">#                     rm.error.leg = c("PRtSIDENTE", "SUB", "PRfSlENTE"),</span></span></span>
+<span class="r-in"><span><span class="co">#                     param = list(char = 6000, drop.page = 3))</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># out &lt;- list.files(pattern = "*.pdf") %&gt;% speech_build()</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># out &lt;- list.files(pattern = "*.pdf") %&gt;%</span></span></span>
+<span class="r-in"><span><span class="co">#     speech_build(., compiler = TRUE, param = list(char = 4500, drop.page = 3))</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
@@ -155,8 +172,7 @@ non evaluate" respectively. The default values are the median characters of
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

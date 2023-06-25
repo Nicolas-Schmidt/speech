@@ -1,3 +1,8 @@
+# speech 0.1.6
+
+* The change in this version is not visible to the user but it is important since otherwise the url assignment in the functions would give errors. This is because the parliament website incorporated a pdf viewer on the page.
+
+
 # speech 0.1.5
 
 * A function is added (`speech_rollcall()`) to detect roll-call votes from parliamentary speeches.

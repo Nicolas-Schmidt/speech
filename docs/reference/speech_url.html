@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">speech</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.6</span>
       </span>
     </div>
 
@@ -53,7 +53,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">speech_url</span><span class="op">(</span><span class="va">chamber</span>, <span class="va">from</span>, <span class="va">to</span>, days <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">speech_url</span><span class="op">(</span><span class="va">chamber</span>, <span class="va">from</span>, <span class="va">to</span>, days <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -73,35 +73,44 @@
 
         
 </dl></dd>
+
+
 <dt>from</dt>
-<dd><p>character vector. Date in DD-MM-YYYY format</p></dd>
+<dd><p>character vector. Date in YYYY-MM-DD format</p></dd>
+
+
 <dt>to</dt>
-<dd><p>character vector. Date in DD-MM-YYYY format</p></dd>
+<dd><p>character vector. Date in YYYY-MM-DD format</p></dd>
+
+
 <dt>days</dt>
-<dd><p>character vector. Date in DD-MM-YYYY format.</p></dd>
+<dd><p>character vector. Date in YYYY-MM-DD format.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>character vector</p>
+    
+
+<p>character vector</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># speech_url(chamber = "D",</span></span>
-<span class="r-in"><span class="co">#            from    = "15-02-2015",</span></span>
-<span class="r-in"><span class="co">#            to      = "15-03-2015")</span></span>
-<span class="r-in"><span class="co">#</span></span>
-<span class="r-in"><span class="co"># speech_url(chamber = "D",</span></span>
-<span class="r-in"><span class="co">#            from    = "15-02-2015",</span></span>
-<span class="r-in"><span class="co">#            to      = "15-02-2015")</span></span>
-<span class="r-in"><span class="co">#</span></span>
-<span class="r-in"><span class="co"># speech_url(chamber = "D",</span></span>
-<span class="r-in"><span class="co">#            days   = "15-02-2015")</span></span>
-<span class="r-in"><span class="co">#</span></span>
-<span class="r-in"><span class="co"># speech_url(chamber = "D",</span></span>
-<span class="r-in"><span class="co">#            days    = c("12-06-2002", "14-04-2004"))</span></span>
-<span class="r-in"><span class="co">#</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># speech_url(chamber = "D",</span></span></span>
+<span class="r-in"><span><span class="co">#            from    = "2015-02-15",</span></span></span>
+<span class="r-in"><span><span class="co">#            to      = "2015-03-15")</span></span></span>
+<span class="r-in"><span><span class="co">#</span></span></span>
+<span class="r-in"><span><span class="co"># speech_url(chamber = "D",</span></span></span>
+<span class="r-in"><span><span class="co">#            from    = "2015-02-15",</span></span></span>
+<span class="r-in"><span><span class="co">#            to      = "2015-03-15")</span></span></span>
+<span class="r-in"><span><span class="co">#</span></span></span>
+<span class="r-in"><span><span class="co"># speech_url(chamber = "D",</span></span></span>
+<span class="r-in"><span><span class="co">#            days   = "2015-02-15")</span></span></span>
+<span class="r-in"><span><span class="co">#</span></span></span>
+<span class="r-in"><span><span class="co"># speech_url(chamber = "D",</span></span></span>
+<span class="r-in"><span><span class="co">#            days    = c("2002-06-12", "2004-04-14"))</span></span></span>
+<span class="r-in"><span><span class="co">#</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
@@ -117,8 +126,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

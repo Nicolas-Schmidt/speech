@@ -73,7 +73,8 @@
 speech_build <- function(file, add.error.sir = NULL, rm.error.leg = NULL, compiler = FALSE,
                    quality = FALSE, param = list(char = 6500, drop.page = 2)){
 
-        out <-
+        file <- sfile(file)
+        out  <-
                 file %>%
                 purrr::map(speech.pow,
                            add.error.sir = add.error.sir,

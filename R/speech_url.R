@@ -7,24 +7,24 @@
 #'              \item{A}{Asamblea General}
 #'              \item{C}{Comision Permanente}
 #'             }
-#' @param from character vector. Date in DD-MM-YYYY format
-#' @param to character vector. Date in DD-MM-YYYY format
-#' @param days character vector. Date in DD-MM-YYYY format.
+#' @param from character vector. Date in YYYY-MM-DD format
+#' @param to character vector. Date in YYYY-MM-DD format
+#' @param days character vector. Date in YYYY-MM-DD format.
 #' @return character vector
 #' @examples
 #' # speech_url(chamber = "D",
-#' #            from    = "15-02-2015",
-#' #            to      = "15-03-2015")
+#' #            from    = "2015-02-15",
+#' #            to      = "2015-03-15")
 #' #
 #' # speech_url(chamber = "D",
-#' #            from    = "15-02-2015",
-#' #            to      = "15-02-2015")
+#' #            from    = "2015-02-15",
+#' #            to      = "2015-03-15")
 #' #
 #' # speech_url(chamber = "D",
-#' #            days   = "15-02-2015")
+#' #            days   = "2015-02-15")
 #' #
 #' # speech_url(chamber = "D",
-#' #            days    = c("12-06-2002", "14-04-2004"))
+#' #            days    = c("2002-06-12", "2004-04-14"))
 #' #
 #'
 #' @export
@@ -33,22 +33,23 @@
 speech_url <- function(chamber, from, to, days = NULL){
 
 
-  if(!is.null(days)){
-    url <- character()
-    for(i in 1:length(days)){
-      url[i] <- urls.out(chamber = chamber, from = days[i] , to = days[i])
+    if(!is.null(days)){
+        url <- character()
+        for(i in 1:length(days)){
+            url[i] <- urls.out(chamber = chamber, from = days[i] , to = days[i])
+        }
+    } else{
+        url <- urls.out(chamber = chamber, from = from, to = to)
     }
-  } else{
-    url <- urls.out(chamber = chamber, from = from, to = to)
-  }
 
-  if(is.null(url)){
-    stop("There are no sessions in that date range.", call. = FALSE)
-  }
-  return(url)
+    url <-  url %>% purrr::map(~ .x %>% deepPDF()) %>% unlist() %>% c2()
+
+    if(is.null(url)){
+        stop("There are no sessions in that date range.", call. = FALSE)
+    }
+    return(url)
 
 }
-
 
 
 

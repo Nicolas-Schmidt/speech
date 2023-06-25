@@ -2,7 +2,7 @@
 #' @importFrom lubridate %within% ymd
 #' @importFrom pdftools pdf_text
 #' @importFrom dplyr summarise ungroup group_by n select
-
+#' @importFrom purrr map
 
 v <- c('rollcall',
        'vote',
@@ -573,7 +573,7 @@ compiler <- function(tidy_speech, compiler_by = character()){
 
     invisible(
               SError(
-                      add_sex(
+                      add_sex(  # problem in flow with replace
                               clean_t(
                                       out))))
 
@@ -674,20 +674,21 @@ test_date <- function(from, to, legislature){
 
 }
 
+
 urlp <- function(step){
 
     u <- list(
-        step1 = "https://parlamento.gub.uy/documentosyleyes/documentos/diarios-de-sesion?Cpo_Codigo_2=",
+        step1 = "https://parlamento.gub.uy/documentosyleyes/documentos/diarios-de-sesion?Cpo_codigo=",
         step2 = "&Lgl_Nro=",
-        step3 = "&DS_Fecha%5Bmin%5D%5Bdate%5D=",
-        step4 = "&DS_Fecha%5Bmax%5D%5Bdate%5D=",
-        step5 = "&Ssn_Nro=&TS_Diario=&tipoBusqueda=T&Texto=&page="
+        step3 = "&fecha_desde=",
+        step4 = "&fecha_hasta=",
+        step5 = "&Ts_diario=&Ssn_Nro=&Tipobusqueda=All&Texto="
     )
     u[[step]]
 }
 
 
-proto_url <- function(chamber, legislature, from, to){
+proto_url <- function(chamber, legislature, from, to){  #### hay cambios
 
     paginas <- as.character(c(0:20))
     url <- purrr::map(paginas,~ paste0(urlp(1),
@@ -698,13 +699,13 @@ proto_url <- function(chamber, legislature, from, to){
                                        from,
                                        urlp(4),
                                        to,
-                                       urlp(5), .)) %>%
+                                       urlp(5),"&page=",.)) %>%
         unlist() %>%
         purrr::map(~ .x  %>%
                        rvest::read_html() %>%
                        rvest::html_nodes(".views-field-DS-File-IMG a") %>%
                        rvest::html_attr("href") %>%
-                       purrr::map(~ paste0("https://parlamento.gub.uy", .))) %>%
+                       purrr::map(~ paste0("", .))) %>%
         unlist()
     url
 }
@@ -712,12 +713,13 @@ proto_url <- function(chamber, legislature, from, to){
 
 parseo <- function(x){
 
-    paste(substring(x, 9, 10), substring(x, 6, 7), substring(x, 1, 4), sep = "-")
+    paste(substring(x, 1, 4), substring(x, 6, 7), substring(x, 9, 10), sep = "-")
 }
+
 
 fechas_legis <- function(from, to){
 
-    periodo <- lubridate::as_date(lubridate::dmy(from):lubridate::dmy(to))
+    periodo <- lubridate::as_date(lubridate::ymd(from):lubridate::ymd(to))
     lista <- list()
 
     for(i in 1:nrow(legislaturas)){
@@ -734,19 +736,33 @@ fechas_legis <- function(from, to){
 
 
 
+
 urls.out <- function(chamber, from, to){
 
     param <- fechas_legis(from, to)
     out <- list()
     for(i in 1:length(param)){
-      out[[i]] <- proto_url(chamber     = chamber,
-                            legislature = names(param)[i],
-                            from        = parseo(param[[i]][1]),
-                            to          = parseo(param[[i]][2]))
+        out[[i]] <- proto_url(chamber     = chamber,
+                              legislature = names(param)[i],
+                              from        = parseo(param[[i]][1]),
+                              to          = parseo(param[[i]][2]))
     }
-  unlist(out)
+    unlist(out)
 
 }
+
+
+deepPDF <- function(.x){
+    page <- readLines(.x, warn = FALSE)
+    on.exit()
+    u   <- unlist(strsplit(page[grep("https://infolegislativa.parlamento.gub.uy/temporales", page)], " "))
+    url <- stringr::str_remove_all(u[grep(x = u, pattern = "^src")],"\"")
+    stringr::str_extract(url, "https://\\S+")
+
+}
+
+
+
 
 
 
@@ -961,6 +977,26 @@ table_rollcall_vote <- function(dat){
     foo
 
 }
+
+c2 <- function(.f){
+    class(.f) <- c(class(.f), "surl")
+    return(.f)
+}
+
+sfile <- function(file){
+
+    if(grepl("https:", file[1])){
+        if(inherits(file, "surl")){
+            file <- file
+        } else {
+            file <- unname(sapply(file, deepPDF))
+        }
+    }else{
+        file <- file
+    }
+}
+
+
 
 ### parse id
 # If the identifier (id) has more than 20 characters it will be compressed to 20.

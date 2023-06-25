@@ -18,7 +18,7 @@ Returns a summary of a rollcall vote object."><meta property="og:image" content=
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">speech</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.6</span>
       </span>
     </div>
 
@@ -55,10 +55,10 @@ Returns a summary of a rollcall vote object."><meta property="og:image" content=
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">speech_rollcall</span><span class="op">(</span><span class="va">file</span>, add.error.sir <span class="op">=</span> <span class="cn">NULL</span>, rm.error.leg <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="co"># S3 method for nominal</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">speech_rollcall</span><span class="op">(</span><span class="va">file</span>, add.error.sir <span class="op">=</span> <span class="cn">NULL</span>, rm.error.leg <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for nominal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,21 +66,34 @@ Returns a summary of a rollcall vote object."><meta property="og:image" content=
     <dl><dt>file</dt>
 <dd><p>list or character vector specifying the path or URL to a PDF file.
 It can be one or more files.</p></dd>
+
+
 <dt>add.error.sir</dt>
 <dd><p>character vector. It allows to specify different ways in which
 the term that orders the speeches could be miswritten: sir. By default it is <code>NULL</code>.</p></dd>
+
+
 <dt>rm.error.leg</dt>
 <dd><p>character vector. It allows to add legislator's names
 to be eliminated. By default it is <code>NULL</code>.
 By default, "PRESIDENTE", "SECRETARIO", "SUBSECRETARIO", and "MINISTRO" are eliminated.</p></dd>
+
+
 <dt>object</dt>
 <dd><p>an object of class <code>nominal</code>, the output of <code>speech_rollcall</code>.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>additional parameter.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data.frame with the following variables:</p><ul><li><p><code>legislator</code>: Name of the legislator</p></li>
+    
+
+<p>data.frame with the following variables:</p>
+<p></p>
+<ul><li><p><code>legislator</code>: Name of the legislator</p></li>
 <li><p><code>vote</code>: Voting, 1 = affirmative, 0 = Negative</p></li>
 <li><p><code>argument</code>:If the legislator justifies the vote, it is worth 1, otherwise 0.</p></li>
 <li><p><code>speech</code>: Speech</p></li>
@@ -90,7 +103,9 @@ By default, "PRESIDENTE", "SECRETARIO", "SUBSECRETARIO", and "MINISTRO" are elim
 <li><p><code>rollcall</code>: Number of roll-call in session</p></li>
 <li><p><code>id</code>: Id</p></li>
 <li><p><code>sex</code>: Sex of legislator</p></li>
-</ul><p>data.frame with the following variables:</p><ul><li><p><code>Chamber</code>: Chamber</p></li>
+</ul><p>data.frame with the following variables:</p>
+<p></p>
+<ul><li><p><code>Chamber</code>: Chamber</p></li>
 <li><p><code>Date</code>: Date</p></li>
 <li><p><code>Legislators</code>: Number of legislators in the voting</p></li>
 <li><p><code>Affirmative</code>: Number of affirmative votes</p></li>
@@ -110,11 +125,11 @@ By default, "PRESIDENTE", "SECRETARIO", "SUBSECRETARIO", and "MINISTRO" are elim
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># url &lt;- speech::speech_url(chamber = "D", from = "14-04-2004", to = "14-04-2004")</span></span>
-<span class="r-in"><span class="co"># out &lt;- speech_rollcall(file = url)</span></span>
-<span class="r-in"><span class="co"># summary(out)</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># url &lt;- speech::speech_url(chamber = "D", from = "14-04-2004", to = "14-04-2004")</span></span></span>
+<span class="r-in"><span><span class="co"># out &lt;- speech_rollcall(file = url)</span></span></span>
+<span class="r-in"><span><span class="co"># summary(out)</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
@@ -130,8 +145,7 @@ By default, "PRESIDENTE", "SECRETARIO", "SUBSECRETARIO", and "MINISTRO" are elim
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
