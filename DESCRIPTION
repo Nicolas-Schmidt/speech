@@ -36,3 +36,5 @@ Imports:
     pdftools,
     rvest
 RoxygenNote: 7.2.3
+Suggests: 
+    covr

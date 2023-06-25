@@ -17,6 +17,9 @@ downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-p
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
 
+[![Codecov test
+coverage](https://codecov.io/gh/Nicolas-Schmidt/speech/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Nicolas-Schmidt/speech?branch=master)
+[![R-CMD-check](https://github.com/Nicolas-Schmidt/speech/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ### Description
