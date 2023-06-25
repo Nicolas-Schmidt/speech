@@ -9,17 +9,11 @@
 [![](https://img.shields.io/badge/devel%20version-0.1.6-orange.svg)](https://github.com/Nicolas-Schmidt/speech)
 [![R build
 status](https://github.com/Nicolas-Schmidt/speech/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![R-CMD-check](https://github.com/Nicolas-Schmidt/speech/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions/workflows/R-CMD-check.yaml)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/speech?color=blue)](https://www.r-pkg.org/pkg/speech)
-
-[![Codecov test
-coverage](https://codecov.io/gh/Nicolas-Schmidt/speech/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Nicolas-Schmidt/speech?branch=master)
-[![R-CMD-check](https://github.com/Nicolas-Schmidt/speech/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Nicolas-Schmidt/speech/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ### Description
