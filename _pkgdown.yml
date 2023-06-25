@@ -1,3 +1,28 @@
 template:
   params:
     bootswatch: sandstone
+
+navbar:
+  structure:
+    left:
+    - intro
+    - reference
+    - cite
+    right:
+    - home
+    - github
+    - twitter
+  components:
+    reference:
+      text: Reference
+      href: reference/index.html
+    cite:
+      text: citation
+      href: authors.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/Nicolas-Schmidt/speech/
+    twitter:
+      icon: fa-twitter fa-lg
+      href: https://twitter.com/nicosch14
+
