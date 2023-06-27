@@ -985,7 +985,8 @@ c2 <- function(.f){
 
 sfile <- function(file){
 
-    if(grepl("https:", file[1])){
+    if(grepl("^http", file[1])){
+        file <- stringr::str_replace(file, pattern = "http:", "https:")
         if(inherits(file, "surl")){
             file <- file
         } else {
@@ -995,7 +996,6 @@ sfile <- function(file){
         file <- file
     }
 }
-
 
 
 ### parse id
